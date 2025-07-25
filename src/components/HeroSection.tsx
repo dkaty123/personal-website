@@ -110,7 +110,7 @@ const HeroSection = () => {
           {/* Added extra container with generous padding to prevent any cutoff */}
           <div className="px-12 py-16">
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.9] text-white tracking-tight">
-              I help founders turn ideas
+              I help turn technical ideas
               <br />
               into seamless{" "}
               <span className="italic font-light bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
