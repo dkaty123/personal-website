@@ -2,6 +2,9 @@
 
 Welcome to my personal developer portfolio! This site showcases who I am, what I’ve built, and what I’m currently working on — designed to be fast, interactive, and professional.
 
+<img width="2302" height="1724" alt="image" src="https://github.com/user-attachments/assets/8d6b1aa3-f7d4-48a1-876d-ed7e9578361d" />
+
+
 ## 👨‍💻 About Me
 
 I'm **Dev Katyal**, a Computer Science student at the **University of Waterloo** and upcoming **Fall 2025 SWE Intern at Shopify**. With $9K+ in awards, multiple internships (Health Canada, OPP), and 9+ featured projects, I’m passionate about using AI to solve real-world problems in conservation, accessibility, and education.
