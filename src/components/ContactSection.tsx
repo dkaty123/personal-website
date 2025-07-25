@@ -268,23 +268,6 @@ const ContactSection = () => {
           })}
         </motion.div>
 
-        {/* Enhanced footer */}
-        <motion.div 
-          className="text-center mt-16 pt-8 border-t border-white/20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-        >
-          <motion.p 
-            className="text-gray-400 text-sm font-light"
-            animate={{
-              opacity: [0.7, 1, 0.7],
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            © 2024 Dev Katyal. Building the future, one line of code at a time.
-          </motion.p>
-        </motion.div>
       </div>
     </section>
   );
