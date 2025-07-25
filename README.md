@@ -1,73 +1,61 @@
-# Welcome to your Lovable project
+# 💻 Dev Katyal — Personal Portfolio
 
-## Project info
+Welcome to my personal developer portfolio! This site showcases who I am, what I’ve built, and what I’m currently working on — designed to be fast, interactive, and professional.
 
-**URL**: https://lovable.dev/projects/c273060d-b226-42ec-b159-d094dc54a978
+## 👨‍💻 About Me
 
-## How can I edit this code?
+I'm **Dev Katyal**, a Computer Science student at the **University of Waterloo** and upcoming **Fall 2025 SWE Intern at Shopify**. With $9K+ in awards, multiple internships (Health Canada, OPP), and 9+ featured projects, I’m passionate about using AI to solve real-world problems in conservation, accessibility, and education.
 
-There are several ways of editing your application.
 
-**Use Lovable**
+## 🧠 Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c273060d-b226-42ec-b159-d094dc54a978) and start prompting.
+### 🔧 Architecture
+- **Frontend**: React 18 + TypeScript + Vite
+- **Styling**: Tailwind CSS + [shadcn/ui](https://ui.shadcn.com)
+- **Routing**: React Router
+- **State & Logic**: Modern React Hooks
+- **Animation**: Framer Motion
+- **Data Viz**: Recharts---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Key Features
 
-**Use your preferred IDE**
+### 🏠 Hero Section
+- Animated intro with Shopify internship banner
+- Links to GitHub, LinkedIn, Email, and more
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 🙋 About Section
+- Education background
+- Fun facts + continuous learning journey
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 💼 Experience Section
+- Timeline of work with:
+  - Shopify (incoming)
+  - Health Canada (SWE Intern)
+  - Ontario Provincial Police (ML Intern)
 
-Follow these steps:
+### 💡 Featured Projects (9+)
+- **MarineMatch** — AI-powered fish ID (Java, Android, ML) — 🏆 $6K in awards
+- **EcoPlastic** — AI recycling assistant (Kotlin) — 🥇 $3K prize
+- **NeuroTrace** — AI cybersecurity tool (LangGraph, Python)
+- **AlgoVisualizer** — React-based algorithm explorer
+- ...and more
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 🏆 Awards Section
+- RBC 21 Under 21
+- Governor General’s Foot Guard Award
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠 Development Setup
 
-# Step 3: Install the necessary dependencies.
-npm i
+```bash
+# 1. Clone the repo
+git clone https://github.com/devkatyal/portfolio.git
+cd portfolio
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 2. Install dependencies
+npm install
+
+# 3. Start development server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/c273060d-b226-42ec-b159-d094dc54a978) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# 4. Build for production
+npm run build
