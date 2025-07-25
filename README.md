@@ -34,7 +34,7 @@ I'm **Dev Katyal**, a Computer Science student at the **University of Waterloo**
 - Timeline of work with:
   - Shopify (incoming)
   - Health Canada (SWE Intern)
-  - Ontario Provincial Police (ML Intern)
+  - Ontario Provincial Police (SWD Intern)
 
 ### 💡 Featured Projects (9+)
 - **MarineMatch** — AI-powered fish ID (Java, Android, ML) — 🏆 $6K in awards
