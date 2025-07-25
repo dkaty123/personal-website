@@ -1,4 +1,3 @@
-
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion, Variants } from "framer-motion";
@@ -45,7 +44,7 @@ const ExperienceSection = () => {
   ];
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 80, scale: 0.8, rotateX: -20 },
+    hidden: { opacity: 0, y: 60, scale: 0.8, rotateX: -15 },
     visible: { 
       opacity: 1, 
       y: 0, 
@@ -53,8 +52,8 @@ const ExperienceSection = () => {
       rotateX: 0,
       transition: { 
         type: "spring" as const, 
-        bounce: 0.4, 
-        duration: 1.2 
+        bounce: 0.3, 
+        duration: 0.8 
       }
     }
   };
@@ -64,112 +63,67 @@ const ExperienceSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+        staggerChildren: 0.15,
+        delayChildren: 0.1
       }
     }
   };
 
   return (
     <section className="py-32 px-6 relative overflow-hidden bg-black">
-      {/* Enhanced background effects with more dynamic animation */}
-      <motion.div 
-        className="absolute inset-0 bg-gradient-to-br from-black via-purple-950/8 to-black"
-        animate={{
-          background: [
-            "radial-gradient(ellipse at 20% 20%, rgba(76,29,149,0.08), transparent 50%)",
-            "radial-gradient(ellipse at 80% 80%, rgba(168,85,247,0.12), transparent 50%)",
-            "radial-gradient(ellipse at 20% 20%, rgba(76,29,149,0.08), transparent 50%)"
-          ]
-        }}
-        transition={{ duration: 12, repeat: Infinity }}
-      />
+      {/* Enhanced background effects with smoother animations */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-950/5 to-black" />
       
-      {/* Enhanced floating particles with more complex movement */}
+      {/* Optimized floating particles */}
       <div className="absolute inset-0">
-        {[...Array(35)].map((_, i) => (
+        {[...Array(25)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute bg-white rounded-full opacity-15"
+            className="absolute bg-white rounded-full opacity-10"
             style={{
-              width: Math.random() * 4 + 2 + 'px',
-              height: Math.random() * 4 + 2 + 'px',
+              width: Math.random() * 3 + 1 + 'px',
+              height: Math.random() * 3 + 1 + 'px',
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
             }}
             animate={{
-              opacity: [0.05, 0.4, 0.05],
-              scale: [1, 2, 1],
-              y: [0, -50, 0],
-              x: [0, Math.random() * 30 - 15, 0],
-              rotate: [0, 360, 0]
+              opacity: [0.1, 0.4, 0.1],
+              scale: [1, 1.8, 1],
+              y: [0, -40, 0],
             }}
             transition={{
-              duration: Math.random() * 8 + 4,
+              duration: Math.random() * 4 + 3,
               repeat: Infinity,
-              delay: Math.random() * 3,
+              delay: Math.random() * 2,
               ease: "easeInOut"
             }}
           />
         ))}
       </div>
 
-      {/* Floating geometric shapes */}
-      <div className="absolute inset-0">
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={`shape-${i}`}
-            className="absolute border border-purple-400/20 rounded-lg"
-            style={{
-              width: Math.random() * 30 + 20 + 'px',
-              height: Math.random() * 30 + 20 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-            }}
-            animate={{
-              rotate: [0, 360],
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.3, 0.1],
-            }}
-            transition={{
-              duration: Math.random() * 15 + 10,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: "linear"
-            }}
-          />
-        ))}
-      </div>
-
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Enhanced Section Header with more dynamic animations */}
+        {/* Enhanced Section Header */}
         <motion.div 
-          className="text-center mb-24"
-          initial={{ opacity: 0, y: -60 }}
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
         >
           <motion.div 
-            className="inline-flex items-center gap-2 mb-8 px-6 py-3 bg-purple-500/10 border border-purple-400/20 rounded-full backdrop-blur-sm"
+            className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full"
             initial={{ scale: 0, rotate: -180 }}
             whileInView={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.3, type: "spring", bounce: 0.6 }}
-            whileHover={{ scale: 1.05 }}
+            transition={{ delay: 0.2, type: "spring", bounce: 0.5 }}
           >
             <motion.div 
-              className="w-3 h-3 bg-purple-400 rounded-full"
+              className="w-2 h-2 bg-purple-400 rounded-full"
               animate={{ 
-                scale: [1, 1.8, 1],
-                opacity: [0.5, 1, 0.5],
-                boxShadow: [
-                  "0 0 0 0 rgba(168, 85, 247, 0.3)",
-                  "0 0 0 10px rgba(168, 85, 247, 0)",
-                  "0 0 0 0 rgba(168, 85, 247, 0)"
-                ]
+                scale: [1, 1.5, 1],
+                opacity: [0.5, 1, 0.5]
               }}
               transition={{ 
-                duration: 2.5,
+                duration: 2,
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
@@ -178,17 +132,10 @@ const ExperienceSection = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-8"
+            className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, delay: 0.5 }}
-            animate={{
-              textShadow: [
-                "0 0 20px rgba(255,255,255,0.05)",
-                "0 0 40px rgba(168,85,247,0.15)",
-                "0 0 20px rgba(255,255,255,0.05)"
-              ]
-            }}
+            transition={{ duration: 1.2, delay: 0.3 }}
           >
             <span className="text-white">Where I've</span>{" "}
             <motion.span 
@@ -197,7 +144,7 @@ const ExperienceSection = () => {
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
               }}
               transition={{
-                duration: 5,
+                duration: 4,
                 repeat: Infinity,
                 ease: "linear"
               }}
@@ -208,25 +155,18 @@ const ExperienceSection = () => {
           </motion.h2>
           
           <motion.p 
-            className="text-xl text-gray-400 font-light max-w-2xl mx-auto"
+            className="text-xl text-gray-400 font-light"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            animate={{
-              opacity: [0.7, 1, 0.7]
-            }}
-            style={{
-              animationDuration: "4s",
-              animationIterationCount: "infinite"
-            }}
+            transition={{ duration: 1, delay: 0.5 }}
           >
             Building meaningful experiences across diverse tech environments
           </motion.p>
         </motion.div>
 
-        {/* Enhanced Experience Cards with improved animations */}
+        {/* Enhanced Experience Cards */}
         <motion.div 
-          className="space-y-10"
+          className="space-y-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -237,25 +177,24 @@ const ExperienceSection = () => {
               key={exp.company}
               variants={cardVariants}
               whileHover={{ 
-                scale: 1.03,
-                y: -12,
-                rotateX: 2,
-                rotateY: 2,
-                transition: { duration: 0.3 }
+                scale: 1.02,
+                y: -8,
+                rotateX: 3,
+                rotateY: 3
               }}
               style={{ perspective: "1000px" }}
               className="group"
             >
-              <Card className="bg-black/80 border border-gray-800 backdrop-blur-sm transition-all duration-700 hover:border-purple-400/50 hover:shadow-2xl hover:shadow-purple-500/25 relative overflow-hidden">
+              <Card className="bg-black/70 border border-gray-800 backdrop-blur-sm transition-all duration-500 hover:border-purple-400/40 hover:shadow-2xl hover:shadow-purple-500/20 relative overflow-hidden">
                 {/* Enhanced background effects */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  className="absolute inset-0 bg-gradient-to-br from-purple-500/3 to-pink-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   initial={false}
                 />
 
-                {/* Enhanced animated particles on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                  {[...Array(12)].map((_, i) => (
+                {/* Animated particles on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  {[...Array(8)].map((_, i) => (
                     <motion.div
                       key={i}
                       className="absolute w-1 h-1 bg-purple-400 rounded-full"
@@ -264,111 +203,63 @@ const ExperienceSection = () => {
                         top: Math.random() * 100 + '%',
                       }}
                       animate={{
-                        y: [0, -35, 0],
+                        y: [0, -25, 0],
                         opacity: [0, 1, 0],
-                        scale: [0, 2, 0],
-                        rotate: [0, 180, 360],
+                        scale: [0, 1.5, 0],
                       }}
                       transition={{
-                        duration: 3,
+                        duration: 2.5,
                         repeat: Infinity,
-                        delay: i * 0.15,
+                        delay: i * 0.2,
                         ease: "easeInOut"
                       }}
                     />
                   ))}
                 </div>
 
-                {/* Animated border effect */}
-                <motion.div
-                  className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: "linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3), transparent)",
-                    backgroundSize: "200% 100%",
-                  }}
-                  animate={{
-                    backgroundPosition: ["200% 0", "-200% 0"],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                />
-
-                <CardContent className="p-10 relative z-10">
-                  <div className="flex items-start gap-8">
-                    {/* Enhanced Company Logo */}
+                <CardContent className="p-8 relative z-10">
+                  <div className="flex items-start gap-6">
+                    {/* Company Logo */}
                     <motion.div 
-                      className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg"
+                      className="w-16 h-16 bg-white rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
                       whileHover={{ 
-                        scale: 1.15,
                         rotate: 8,
-                        boxShadow: "0 0 30px rgba(168, 85, 247, 0.5)"
-                      }}
-                      animate={{
-                        y: [0, -3, 0],
-                      }}
-                      transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: index * 0.5
+                        boxShadow: "0 0 25px rgba(168, 85, 247, 0.4)"
                       }}
                     >
                       <img 
                         src={exp.logo} 
                         alt={exp.company}
-                        className="w-16 h-16 object-contain"
+                        className="w-12 h-12 object-contain"
                       />
                     </motion.div>
 
-                    {/* Enhanced Experience Details */}
+                    {/* Experience Details */}
                     <div className="flex-1">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                         <div>
                           <motion.h3 
-                            className="text-2xl font-light text-white mb-2 group-hover:text-purple-100 transition-colors duration-300"
-                            whileHover={{ x: 10 }}
-                            animate={{
-                              textShadow: [
-                                "0 0 0 rgba(255,255,255,0)",
-                                "0 0 20px rgba(168,85,247,0.3)",
-                                "0 0 0 rgba(255,255,255,0)"
-                              ]
-                            }}
-                            transition={{
-                              duration: 3,
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            }}
+                            className="text-2xl font-light text-white mb-1 group-hover:text-purple-100 transition-colors duration-300"
+                            whileHover={{ x: 8 }}
                           >
                             {exp.role}
                           </motion.h3>
                           <motion.p 
                             className="text-lg text-white font-medium group-hover:text-purple-200 transition-colors duration-300"
-                            whileHover={{ x: 10 }}
+                            whileHover={{ x: 8 }}
                           >
                             {exp.company}
                           </motion.p>
                         </div>
                         
                         <motion.div
-                          whileHover={{ scale: 1.15 }}
+                          whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
-                          animate={{
-                            scale: exp.status === 'upcoming' ? [1, 1.05, 1] : [1],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: exp.status === 'upcoming' ? Infinity : 0,
-                            ease: "easeInOut"
-                          }}
                         >
                           <Badge 
                             variant="outline" 
-                            className={`border-purple-400/40 text-purple-300 bg-purple-500/15 text-sm px-4 py-2 ${
-                              exp.status === 'upcoming' ? 'shadow-lg shadow-purple-500/20' : ''
+                            className={`border-purple-400/30 text-purple-300 bg-purple-500/10 ${
+                              exp.status === 'upcoming' ? 'animate-pulse' : ''
                             }`}
                           >
                             {exp.period}
@@ -377,60 +268,32 @@ const ExperienceSection = () => {
                       </div>
 
                       <motion.p 
-                        className="text-gray-400 mb-6 font-light text-base"
+                        className="text-gray-400 mb-4 font-light"
                         initial={{ opacity: 0.8 }}
-                        whileHover={{ opacity: 1, x: 8 }}
-                        transition={{ duration: 0.3 }}
+                        whileHover={{ opacity: 1, x: 5 }}
                       >
                         {exp.duration}
                       </motion.p>
 
-                      <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500">
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
                         <motion.div 
-                          className="flex items-center gap-2"
-                          whileHover={{ scale: 1.15, color: "#a855f7" }}
-                          animate={{
-                            y: [0, -2, 0],
-                          }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: 0.2
-                          }}
+                          className="flex items-center gap-1"
+                          whileHover={{ scale: 1.1, color: "#a855f7" }}
                         >
                           <Calendar className="w-4 h-4" />
                           <span>{exp.date}</span>
                         </motion.div>
-                        <span className="text-gray-600">•</span>
+                        <span>•</span>
                         <motion.div 
-                          className="flex items-center gap-2"
-                          whileHover={{ scale: 1.15, color: "#a855f7" }}
-                          animate={{
-                            y: [0, -2, 0],
-                          }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: 0.4
-                          }}
+                          className="flex items-center gap-1"
+                          whileHover={{ scale: 1.1, color: "#a855f7" }}
                         >
                           <span>{exp.monthDuration}</span>
                         </motion.div>
-                        <span className="text-gray-600">•</span>
+                        <span>•</span>
                         <motion.div 
-                          className="flex items-center gap-2"
-                          whileHover={{ scale: 1.15, color: "#a855f7" }}
-                          animate={{
-                            y: [0, -2, 0],
-                          }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: 0.6
-                          }}
+                          className="flex items-center gap-1"
+                          whileHover={{ scale: 1.1, color: "#a855f7" }}
                         >
                           <MapPin className="w-4 h-4" />
                           <span>{exp.location}</span>
