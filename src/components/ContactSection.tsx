@@ -42,135 +42,130 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-32 px-6 relative overflow-hidden bg-black">
-      {/* Enhanced animated background with more particles */}
+      {/* Enhanced animated background */}
       <motion.div className="absolute inset-0">
-        {[...Array(120)].map((_, i) => (
+        {[...Array(80)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute bg-white rounded-full"
+            className="absolute bg-white rounded-full opacity-40"
             style={{
-              width: Math.random() * 4 + 1 + 'px',
-              height: Math.random() * 4 + 1 + 'px',
+              width: Math.random() * 3 + 1 + 'px',
+              height: Math.random() * 3 + 1 + 'px',
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
             }}
             animate={{
-              opacity: [0.1, 0.9, 0.1],
-              scale: [1, 2, 1],
-              y: [-50, 50, -50],
-              x: [-20, 20, -20],
+              opacity: [0.2, 0.8, 0.2],
+              scale: [1, 1.5, 1],
+              y: [-30, 30, -30],
             }}
             transition={{
-              duration: Math.random() * 12 + 6,
+              duration: Math.random() * 8 + 4,
               repeat: Infinity,
-              delay: Math.random() * 6,
-              ease: "easeInOut"
+              delay: Math.random() * 4,
             }}
           />
         ))}
       </motion.div>
       
-      {/* Enhanced floating contact icons with more movement */}
+      {/* Floating contact icons */}
       <div className="absolute inset-0">
         {[Mail, MessageCircle, Github, Sparkles].map((Icon, i) => (
           <motion.div
             key={i}
-            className="absolute text-purple-400/25"
+            className="absolute text-purple-400/20"
             style={{
-              left: `${10 + i * 22}%`,
-              top: `${20 + (i % 2) * 40}%`,
+              left: `${15 + i * 20}%`,
+              top: `${25 + (i % 2) * 35}%`,
             }}
             animate={{
-              y: [-15, 15, -15],
-              x: [-10, 10, -10],
-              rotate: [-5, 5, -5],
-              scale: [1, 1.2, 1],
+              y: [-10, 10, -10],
+              rotate: [-3, 3, -3],
             }}
             transition={{
-              delay: i * 2,
-              duration: 10 + i * 2,
+              delay: i * 1.5,
+              duration: 8 + i,
               repeat: Infinity,
               ease: "easeInOut"
             }}
           >
-            <Icon className="w-10 h-10" />
+            <Icon className="w-8 h-8" />
           </motion.div>
         ))}
       </div>
 
-      {/* Dynamic gradient overlays with more complex animation */}
+      {/* Enhanced gradient overlays with animation */}
       <motion.div 
-        className="absolute inset-0"
+        className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/20 to-black"
         animate={{
           background: [
-            "radial-gradient(circle at 20% 50%, rgba(168,85,247,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(59,130,246,0.2) 0%, transparent 50%), linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,1))",
-            "radial-gradient(circle at 60% 30%, rgba(236,72,153,0.25) 0%, transparent 50%), radial-gradient(circle at 40% 70%, rgba(168,85,247,0.3) 0%, transparent 50%), linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,1))",
-            "radial-gradient(circle at 80% 80%, rgba(59,130,246,0.2) 0%, transparent 50%), radial-gradient(circle at 20% 20%, rgba(168,85,247,0.3) 0%, transparent 50%), linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,1))"
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(76,29,149,0.2), rgba(0,0,0,1))",
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(168,85,247,0.25), rgba(0,0,0,1))",
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(76,29,149,0.2), rgba(0,0,0,1))"
           ]
         }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 10, repeat: Infinity }}
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Enhanced header with better animations */}
+        {/* Enhanced header */}
         <motion.div 
           className="text-center mb-20"
-          initial={{ opacity: 0, y: -60 }}
+          initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, type: "spring", bounce: 0.4 }}
+          transition={{ duration: 1, type: "spring", bounce: 0.3 }}
           viewport={{ once: true }}
         >
           <motion.h2 
             className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-8"
             animate={{
               textShadow: [
-                "0 0 30px rgba(255,255,255,0.1)",
-                "0 0 60px rgba(168,85,247,0.4)",
-                "0 0 30px rgba(255,255,255,0.1)"
+                "0 0 20px rgba(255,255,255,0.1)",
+                "0 0 40px rgba(168,85,247,0.3)",
+                "0 0 20px rgba(255,255,255,0.1)"
               ]
             }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 4, repeat: Infinity }}
           >
             <span className="text-white">Let's</span>
             <br />
             <motion.span 
-              className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent"
+              className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              style={{ backgroundSize: "300% 300%" }}
+              transition={{ duration: 5, repeat: Infinity }}
+              style={{ backgroundSize: "200% 200%" }}
             >
               Connect
             </motion.span>
           </motion.h2>
           <motion.p 
             className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.3 }}
           >
             Ready to turn your ideas into reality? Let's discuss how we can create something amazing together.
           </motion.p>
 
-          {/* Enhanced animated decoration */}
+          {/* Animated decoration */}
           <motion.div 
-            className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-96 h-20 bg-gradient-to-r from-transparent via-purple-500/40 to-transparent blur-xl"
+            className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-96 h-16 bg-gradient-to-r from-transparent via-purple-500/30 to-transparent blur-xl"
             animate={{
-              opacity: [0.4, 1, 0.4],
-              scaleX: [0.8, 1.4, 0.8],
-              scaleY: [1, 1.2, 1],
+              opacity: [0.3, 0.8, 0.3],
+              scaleX: [0.8, 1.2, 0.8],
             }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 4, repeat: Infinity }}
           />
         </motion.div>
 
-        {/* Enhanced Contact Methods with better animations */}
+        {/* Contact Methods */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
           {contactMethods.map((method, index) => {
@@ -180,74 +175,52 @@ const ContactSection = () => {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 80, rotateX: -15 }}
+                initial={{ opacity: 0, y: 50, rotateX: -10 }}
                 whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 transition={{ 
-                  delay: index * 0.3, 
-                  duration: 1, 
+                  delay: index * 0.2, 
+                  duration: 0.8, 
                   type: "spring",
-                  bounce: 0.4
+                  bounce: 0.3
                 }}
                 viewport={{ once: true }}
                 whileHover={{ 
-                  scale: 1.08,
-                  y: -15,
-                  rotateX: 8,
-                  rotateY: 5,
+                  scale: 1.05,
+                  y: -10,
+                  rotateX: 5
                 }}
                 style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
                 className="group"
               >
-                <Card className="bg-black/80 border border-gray-800 backdrop-blur-sm transition-all duration-700 hover:border-purple-400/50 hover:shadow-2xl hover:shadow-purple-500/30 relative overflow-hidden p-8 h-full">
-                  {/* Enhanced animated background glow */}
+                <Card className="bg-black/70 border border-gray-800 backdrop-blur-sm transition-all duration-500 hover:border-purple-400/40 hover:shadow-2xl hover:shadow-purple-500/20 relative overflow-hidden p-8 h-full">
+                  {/* Animated background glow */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                    className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     initial={false}
                   />
 
-                  {/* Animated border effect */}
-                  <motion.div
-                    className="absolute inset-0 rounded-lg"
-                    animate={{
-                      background: [
-                        "linear-gradient(45deg, transparent, transparent)",
-                        "linear-gradient(45deg, rgba(168,85,247,0.2), transparent, rgba(168,85,247,0.2))",
-                        "linear-gradient(45deg, transparent, transparent)"
-                      ]
-                    }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  />
-
                   <div className="relative z-10 text-center">
-                    {/* Enhanced Icon */}
+                    {/* Icon */}
                     <motion.div 
-                      className={`w-20 h-20 ${colorClasses.bg} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-125 transition-transform duration-500`}
+                      className={`w-16 h-16 ${colorClasses.bg} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
                       whileHover={{ 
-                        rotate: 15,
-                        boxShadow: "0 0 30px rgba(168, 85, 247, 0.6)"
+                        rotate: 10,
+                        boxShadow: "0 0 20px rgba(168, 85, 247, 0.4)"
                       }}
-                      animate={{
-                        boxShadow: [
-                          "0 0 0px rgba(168, 85, 247, 0)",
-                          "0 0 20px rgba(168, 85, 247, 0.3)",
-                          "0 0 0px rgba(168, 85, 247, 0)"
-                        ]
-                      }}
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      <Icon className={`w-10 h-10 ${colorClasses.text}`} />
+                      <Icon className={`w-8 h-8 ${colorClasses.text}`} />
                     </motion.div>
 
-                    {/* Enhanced Content */}
+                    {/* Content */}
                     <motion.h3 
-                      className="text-2xl font-light text-white mb-3 group-hover:text-purple-100 transition-colors duration-500"
-                      whileHover={{ y: -3, scale: 1.05 }}
+                      className="text-xl font-light text-white mb-2 group-hover:text-purple-100 transition-colors duration-300"
+                      whileHover={{ y: -2 }}
                     >
                       {method.title}
                     </motion.h3>
                     
                     <motion.p 
-                      className="text-gray-400 text-sm mb-6 font-light"
+                      className="text-gray-400 text-sm mb-4 font-light"
                       whileHover={{ y: -2 }}
                     >
                       {method.description}
@@ -257,34 +230,33 @@ const ContactSection = () => {
                       href={method.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-block ${colorClasses.text} hover:text-white transition-colors duration-500 text-sm font-medium`}
-                      whileHover={{ scale: 1.1, y: -2 }}
+                      className={`inline-block ${colorClasses.text} hover:text-white transition-colors duration-300 text-sm font-medium`}
+                      whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       {method.value}
                     </motion.a>
                   </div>
 
-                  {/* Enhanced floating particles */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                    {[...Array(8)].map((_, i) => (
+                  {/* Floating particles */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    {[...Array(4)].map((_, i) => (
                       <motion.div
                         key={i}
-                        className="absolute w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"
+                        className="absolute w-1 h-1 bg-purple-400 rounded-full"
                         style={{
                           left: Math.random() * 100 + '%',
                           top: Math.random() * 100 + '%',
                         }}
                         animate={{
-                          y: [0, -30, 0],
-                          x: [0, Math.random() * 20 - 10, 0],
+                          y: [0, -20, 0],
                           opacity: [0, 1, 0],
-                          scale: [0, 2, 0],
+                          scale: [0, 1.5, 0],
                         }}
                         transition={{
-                          duration: 3,
+                          duration: 2,
                           repeat: Infinity,
-                          delay: i * 0.3,
+                          delay: i * 0.4,
                           ease: "easeInOut"
                         }}
                       />
@@ -294,6 +266,24 @@ const ContactSection = () => {
               </motion.div>
             );
           })}
+        </motion.div>
+
+        {/* Enhanced footer */}
+        <motion.div 
+          className="text-center mt-16 pt-8 border-t border-white/20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+        >
+          <motion.p 
+            className="text-gray-400 text-sm font-light"
+            animate={{
+              opacity: [0.7, 1, 0.7],
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            © 2024 Dev Katyal. Building the future, one line of code at a time.
+          </motion.p>
         </motion.div>
       </div>
     </section>
