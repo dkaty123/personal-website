@@ -237,7 +237,7 @@ const PersonalSection = () => {
 
             {/* Content Section - Fixed positioning */}
             <div className="text-center mb-8">
-              <span className="text-white font-medium text-lg block mb-2">Coffee • Gaming • Night Coding</span>
+              <span className="text-white font-medium text-lg block mb-2">Coffee • Night Coding</span>
               <span className="text-xs text-gray-400">Peak productivity: 11 PM</span>
             </div>
             
