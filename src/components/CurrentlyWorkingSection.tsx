@@ -140,39 +140,7 @@ const CurrentlyWorkingSection = () => {
           transition={{ duration: 1, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <Card className="bg-black/70 border border-purple-400/20 backdrop-blur-sm p-8 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5" />
-            
-            <div className="relative z-10">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full">
-                  <Zap className="w-4 h-4 text-purple-400" />
-                  <span className="text-purple-300 text-sm font-light">Featured Project</span>
-                </div>
-                <h3 className="text-4xl font-light text-white mb-4">ScholaSwiper</h3>
-                <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
-                  AI-powered scholarship discovery platform that uses machine learning to match students with personalized funding opportunities. 
-                  Swipe through scholarships like dating apps, with intelligent recommendations based on academic profile, interests, and eligibility criteria.
-                </p>
-                <div className="flex items-center justify-center gap-4 mt-6 flex-wrap">
-                  <Badge variant="outline" className="border-purple-400/40 text-purple-400 bg-purple-400/10">
-                    React Native
-                  </Badge>
-                  <Badge variant="outline" className="border-blue-400/40 text-blue-400 bg-blue-400/10">
-                    AI/ML
-                  </Badge>
-                  <Badge variant="outline" className="border-green-400/40 text-green-400 bg-green-400/10">
-                    MongoDB
-                  </Badge>
-                  <Badge variant="outline" className="border-pink-400/40 text-pink-400 bg-pink-400/10">
-                    TensorFlow
-                  </Badge>
-                </div>
-              </div>
-              
-              <ScholaSwiperMockup />
-            </div>
-          </Card>
+          <ScholaSwiperMockup />
         </motion.div>
 
         {/* Projects Grid */}

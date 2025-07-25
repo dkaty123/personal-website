@@ -123,176 +123,184 @@ const ScholaSwiperMockup = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center py-20">
-      <div className="text-center mb-12">
-        <h3 className="text-4xl font-light text-white mb-4">ScholaSwiper Demo</h3>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          Interactive prototype of the AI-powered scholarship discovery platform
-        </p>
-      </div>
-
-      {/* iPhone Mockup */}
+    <div className="flex flex-col items-center justify-center py-12">
+      {/* iPhone 14 Pro Max Mockup */}
       <div className="relative">
+        {/* Phone Shadow */}
+        <div className="absolute inset-0 bg-black/30 rounded-[60px] blur-3xl transform translate-y-8 scale-105" />
+        
         {/* Phone Frame */}
-        <div className="w-[380px] h-[760px] bg-black rounded-[60px] p-2 shadow-2xl">
+        <div className="relative w-[380px] h-[820px] bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-[60px] p-2 shadow-2xl border border-gray-700/50">
           {/* Screen */}
-          <div className="w-full h-full bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 rounded-[50px] overflow-hidden relative">
-            {/* Notch */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[140px] h-[30px] bg-black rounded-b-2xl z-50"></div>
+          <div className="w-full h-full bg-black rounded-[50px] overflow-hidden relative">
+            {/* Dynamic Island */}
+            <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-[126px] h-[37px] bg-black rounded-full z-50 shadow-inner"></div>
             
-            {/* Status Bar */}
-            <div className="flex justify-between items-center px-8 pt-12 pb-4 text-white text-sm font-medium">
-              <span>9:41</span>
-              <div className="flex items-center gap-1">
-                <div className="flex gap-1">
-                  <div className="w-1 h-1 bg-white rounded-full"></div>
-                  <div className="w-1 h-1 bg-white rounded-full"></div>
-                  <div className="w-1 h-1 bg-white rounded-full"></div>
-                  <div className="w-1 h-1 bg-white/50 rounded-full"></div>
+            {/* Screen Content */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+              {/* Status Bar */}
+              <div className="flex justify-between items-center px-8 pt-16 pb-4 text-white text-sm font-medium">
+                <span className="text-white">9:41</span>
+                <div className="flex items-center gap-1">
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 bg-white rounded-full"></div>
+                    <div className="w-1 h-1 bg-white rounded-full"></div>
+                    <div className="w-1 h-1 bg-white rounded-full"></div>
+                    <div className="w-1 h-1 bg-white/50 rounded-full"></div>
+                  </div>
+                  <span className="ml-2 text-white">📶</span>
+                  <span className="text-white">🔋</span>
                 </div>
-                <span className="ml-2">📶</span>
-                <span>📶</span>
-                <span>🔋</span>
               </div>
-            </div>
 
-            {/* Header */}
-            <div className="px-6 mb-6">
-              <div className="flex justify-between items-center mb-2">
-                <div>
-                  <h1 className="text-white text-3xl font-bold">Discover</h1>
-                  <p className="text-purple-200 text-base">Your perfect matches</p>
+              {/* Header */}
+              <div className="px-6 mb-6">
+                <div className="flex justify-between items-center mb-2">
+                  <div>
+                    <h1 className="text-white text-3xl font-bold">Discover</h1>
+                    <p className="text-gray-300 text-base">Your perfect matches</p>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <Filter className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <Bell className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
                 </div>
-                <div className="flex gap-4">
-                  <Filter className="w-6 h-6 text-purple-200" />
-                  <Bell className="w-6 h-6 text-purple-200" />
+                
+                {/* Stats */}
+                <div className="flex items-center gap-4 mt-4">
+                  <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-3 py-1">
+                    {applicationsCount.toLocaleString()} applications
+                  </Badge>
+                  <span className="text-gray-400 text-sm">• Active today</span>
                 </div>
               </div>
-              
-              {/* Stats */}
-              <div className="flex items-center gap-4 mt-4">
-                <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-3 py-1">
-                  {applicationsCount.toLocaleString()} applications
-                </Badge>
-                <span className="text-purple-200 text-sm">• Active today</span>
-              </div>
-            </div>
 
-            {/* Card Stack */}
-            <div className="relative px-6 h-[420px]">
-              <AnimatePresence>
-                <motion.div
-                  key={currentScholarship.id}
-                  className={`absolute inset-0 bg-gradient-to-br ${currentScholarship.color} rounded-3xl p-6 shadow-2xl cursor-grab active:cursor-grabbing`}
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  onDragEnd={handleDragEnd}
-                  initial={{ scale: 0.95, opacity: 0 }}
-                  animate={{ 
-                    scale: 1, 
-                    opacity: 1,
-                    x: swipeDirection === 'right' ? 300 : swipeDirection === 'left' ? -300 : 0,
-                    rotate: swipeDirection === 'right' ? 20 : swipeDirection === 'left' ? -20 : 0
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              {/* Card Stack */}
+              <div className="relative px-6 h-[460px]">
+                <AnimatePresence>
+                  <motion.div
+                    key={currentScholarship.id}
+                    className="absolute inset-0 bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 shadow-2xl cursor-grab active:cursor-grabbing overflow-hidden"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    onDragEnd={handleDragEnd}
+                    initial={{ scale: 0.95, opacity: 0 }}
+                    animate={{ 
+                      scale: 1, 
+                      opacity: 1,
+                      x: swipeDirection === 'right' ? 300 : swipeDirection === 'left' ? -300 : 0,
+                      rotate: swipeDirection === 'right' ? 20 : swipeDirection === 'left' ? -20 : 0
+                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  >
+                    {/* Card Content */}
+                    <div className="p-6 h-full flex flex-col">
+                      {/* Card Header */}
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl backdrop-blur-sm">
+                            {currentScholarship.icon}
+                          </div>
+                          <div>
+                            <p className="text-white/80 text-sm font-medium">{currentScholarship.category}</p>
+                            <p className="text-white text-lg font-bold">{currentScholarship.company}</p>
+                          </div>
+                        </div>
+                        <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-3 py-1 font-bold">
+                          {currentScholarship.match}% Match
+                        </Badge>
+                      </div>
+
+                      {/* Title */}
+                      <h2 className="text-white text-2xl font-bold mb-4 leading-tight">
+                        {currentScholarship.title}
+                      </h2>
+
+                      {/* Amount & Rating */}
+                      <div className="flex justify-between items-center mb-4">
+                        <span className="text-yellow-400 text-4xl font-bold">
+                          {currentScholarship.amount}
+                        </span>
+                        <div className="flex items-center gap-1">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-5 h-5 ${
+                                i < currentScholarship.rating ? 'fill-yellow-400 text-yellow-400' : 'text-white/30'
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-white/90 text-base mb-6 leading-relaxed flex-1">
+                        {currentScholarship.description}
+                      </p>
+
+                      {/* Eligibility */}
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 mb-6 border border-white/20">
+                        <p className="text-white text-center font-medium">
+                          {currentScholarship.eligibility}
+                        </p>
+                      </div>
+
+                      {/* Deadline */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-5 h-5 text-white/70" />
+                          <span className="text-white text-base">Deadline: {currentScholarship.deadline}</span>
+                        </div>
+                        {currentScholarship.isUrgent && (
+                          <Badge className="bg-red-500/20 text-red-400 border-red-500/30 px-3 py-1 font-bold">
+                            URGENT
+                          </Badge>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 flex gap-8">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => handleSwipe('left')}
+                  className="w-16 h-16 bg-red-500/20 border-2 border-red-500/40 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm"
                 >
-                  {/* Card Header */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
-                        {currentScholarship.icon}
-                      </div>
-                      <div>
-                        <p className="text-white/80 text-sm font-medium">{currentScholarship.category}</p>
-                        <p className="text-white text-lg font-bold">{currentScholarship.company}</p>
-                      </div>
-                    </div>
-                    <Badge className="bg-green-500 text-white px-3 py-1 font-bold">
-                      {currentScholarship.match}% Match
-                    </Badge>
-                  </div>
+                  <X className="w-8 h-8 text-red-400" />
+                </motion.button>
+                
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => handleSwipe('right')}
+                  className="w-16 h-16 bg-green-500/20 border-2 border-green-500/40 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm"
+                >
+                  <Heart className="w-8 h-8 text-green-400" />
+                </motion.button>
+              </div>
 
-                  {/* Title */}
-                  <h2 className="text-white text-2xl font-bold mb-4 leading-tight">
-                    {currentScholarship.title}
-                  </h2>
+              {/* Home Indicator */}
+              <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-white/30 rounded-full"></div>
 
-                  {/* Amount & Rating */}
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-yellow-300 text-4xl font-bold">
-                      {currentScholarship.amount}
-                    </span>
-                    <div className="flex items-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`w-5 h-5 ${
-                            i < currentScholarship.rating ? 'fill-yellow-400 text-yellow-400' : 'text-white/30'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-white/90 text-base mb-6 leading-relaxed">
-                    {currentScholarship.description}
-                  </p>
-
-                  {/* Eligibility */}
-                  <div className="bg-white/10 rounded-2xl p-4 mb-6">
-                    <p className="text-white text-center font-medium">
-                      {currentScholarship.eligibility}
-                    </p>
-                  </div>
-
-                  {/* Deadline */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-5 h-5 text-white/70" />
-                      <span className="text-white text-base">Deadline: {currentScholarship.deadline}</span>
-                    </div>
-                    {currentScholarship.isUrgent && (
-                      <Badge className="bg-red-500 text-white px-3 py-1 font-bold">
-                        URGENT
-                      </Badge>
-                    )}
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex gap-8">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => handleSwipe('left')}
-                className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center shadow-lg"
-              >
-                <X className="w-8 h-8 text-white" />
-              </motion.button>
-              
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => handleSwipe('right')}
-                className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg"
-              >
-                <Heart className="w-8 h-8 text-white" />
-              </motion.button>
-            </div>
-
-            {/* Bottom Indicators */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2">
-              {scholarships.map((_, index) => (
-                <div
-                  key={index}
-                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                    index === currentIndex ? 'bg-white' : 'bg-white/30'
-                  }`}
-                />
-              ))}
+              {/* Bottom Indicators */}
+              <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex gap-2">
+                {scholarships.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                      index === currentIndex ? 'bg-white' : 'bg-white/30'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
