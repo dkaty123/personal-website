@@ -43,32 +43,6 @@ const ExperienceSection = () => {
     },
   ];
 
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 60, scale: 0.8, rotateX: -15 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      rotateX: 0,
-      transition: { 
-        type: "spring" as const, 
-        bounce: 0.3, 
-        duration: 0.8 
-      }
-    }
-  };
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1
-      }
-    }
-  };
-
   return (
     <section className="py-32 px-6 relative overflow-hidden bg-black">
       {/* Enhanced background effects with smoother animations */}
@@ -103,18 +77,18 @@ const ExperienceSection = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Enhanced Section Header */}
-        <motion.div 
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-20">
           <motion.div 
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full"
-            initial={{ scale: 0, rotate: -180 }}
-            whileInView={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.2, type: "spring", bounce: 0.5 }}
+            animate={{ 
+              scale: [1, 1.05, 1],
+              rotate: [0, 2, 0]
+            }}
+            transition={{ 
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
           >
             <motion.div 
               className="w-2 h-2 bg-purple-400 rounded-full"
@@ -133,9 +107,14 @@ const ExperienceSection = () => {
           
           <motion.h2 
             className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
+            animate={{
+              textShadow: [
+                "0 0 20px rgba(255,255,255,0.1)",
+                "0 0 40px rgba(168,85,247,0.3)",
+                "0 0 20px rgba(255,255,255,0.1)"
+              ]
+            }}
+            transition={{ duration: 4, repeat: Infinity }}
           >
             <span className="text-white">Where I've</span>{" "}
             <motion.span 
@@ -156,26 +135,24 @@ const ExperienceSection = () => {
           
           <motion.p 
             className="text-xl text-gray-400 font-light"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            animate={{
+              opacity: [0.8, 1, 0.8]
+            }}
+            transition={{ 
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
           >
             Building meaningful experiences across diverse tech environments
           </motion.p>
-        </motion.div>
+        </div>
 
         {/* Enhanced Experience Cards */}
-        <motion.div 
-          className="space-y-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        <div className="space-y-8">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.company}
-              variants={cardVariants}
               whileHover={{ 
                 scale: 1.02,
                 y: -8,
@@ -269,7 +246,6 @@ const ExperienceSection = () => {
 
                       <motion.p 
                         className="text-gray-400 mb-4 font-light"
-                        initial={{ opacity: 0.8 }}
                         whileHover={{ opacity: 1, x: 5 }}
                       >
                         {exp.duration}
@@ -305,7 +281,7 @@ const ExperienceSection = () => {
               </Card>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

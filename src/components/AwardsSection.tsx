@@ -57,35 +57,6 @@ const AwardsSection = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30,
-      rotateX: -15
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      rotateX: 0,
-      transition: {
-        type: "spring" as const,
-        bounce: 0.15,
-        duration: 0.6
-      }
-    }
-  };
-
   return (
     <section className="py-32 bg-black relative overflow-hidden">
       {/* Optimized background effects */}
@@ -118,18 +89,18 @@ const AwardsSection = () => {
 
       <div className="container mx-auto px-8 relative z-10">
         {/* Enhanced Header with staggered animations */}
-        <motion.div 
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-20">
           <motion.div 
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full"
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring", bounce: 0.5 }}
+            animate={{ 
+              scale: [1, 1.05, 1],
+              rotate: [0, 2, 0]
+            }}
+            transition={{ 
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
           >
             <motion.div 
               className="w-2 h-2 bg-purple-400 rounded-full"
@@ -148,9 +119,14 @@ const AwardsSection = () => {
 
           <motion.h2 
             className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
+            animate={{
+              textShadow: [
+                "0 0 20px rgba(255,255,255,0.1)",
+                "0 0 40px rgba(168,85,247,0.3)",
+                "0 0 20px rgba(255,255,255,0.1)"
+              ]
+            }}
+            transition={{ duration: 4, repeat: Infinity }}
           >
             Recognition{" "}
             <motion.span 
@@ -171,26 +147,24 @@ const AwardsSection = () => {
           
           <motion.p 
             className="text-gray-300 text-xl max-w-3xl mx-auto font-light leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            animate={{
+              opacity: [0.8, 1, 0.8]
+            }}
+            transition={{ 
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
           >
             Celebrating achievements that fuel the journey forward
           </motion.p>
-        </motion.div>
+        </div>
 
         {/* Awards Grid - Redesigned to match experience cards */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {awards.map((award, index) => (
             <motion.div
               key={index}
-              variants={cardVariants}
               className="group"
               whileHover={{ 
                 scale: 1.02,
@@ -279,7 +253,6 @@ const AwardsSection = () => {
                 <div className="mt-auto relative z-10">
                   <motion.p 
                     className="text-white text-xs font-light leading-relaxed text-center"
-                    initial={{ opacity: 0.9 }}
                     whileHover={{ opacity: 1 }}
                   >
                     {award.description}
@@ -318,7 +291,7 @@ const AwardsSection = () => {
               </Card>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

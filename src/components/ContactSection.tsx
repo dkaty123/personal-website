@@ -109,13 +109,7 @@ const ContactSection = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Enhanced header */}
-        <motion.div 
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, type: "spring", bounce: 0.3 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-20">
           <motion.h2 
             className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-8"
             animate={{
@@ -142,9 +136,14 @@ const ContactSection = () => {
           </motion.h2>
           <motion.p 
             className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            animate={{
+              opacity: [0.8, 1, 0.8]
+            }}
+            transition={{ 
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
           >
             Ready to turn your ideas into reality? Let's discuss how we can create something amazing together.
           </motion.p>
@@ -158,16 +157,10 @@ const ContactSection = () => {
             }}
             transition={{ duration: 4, repeat: Infinity }}
           />
-        </motion.div>
+        </div>
 
         {/* Contact Methods */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {contactMethods.map((method, index) => {
             const Icon = method.icon;
             const colorClasses = getColorClasses(method.color);
@@ -175,15 +168,6 @@ const ContactSection = () => {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50, rotateX: -10 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ 
-                  delay: index * 0.2, 
-                  duration: 0.8, 
-                  type: "spring",
-                  bounce: 0.3
-                }}
-                viewport={{ once: true }}
                 whileHover={{ 
                   scale: 1.05,
                   y: -10,
@@ -266,7 +250,7 @@ const ContactSection = () => {
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
 
       </div>
     </section>

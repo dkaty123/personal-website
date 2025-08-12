@@ -168,13 +168,9 @@ const WorkSection = () => {
   };
 
   return (
-    <motion.section 
+    <section 
       id="work" 
       className="py-32 px-6 relative overflow-hidden bg-black"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
     >
       <div className="absolute inset-0">
         {[...Array(120)].map((_, i) => (
@@ -236,13 +232,7 @@ const WorkSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/5 to-black" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div 
-          className="text-center mb-24 relative"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, type: "spring" }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-24 relative">
           <motion.div 
             className="absolute -top-12 left-1/4 w-8 h-8 bg-purple-400/20 rounded-full"
             animate={{
@@ -282,30 +272,19 @@ const WorkSection = () => {
             }}
             transition={{ duration: 4, repeat: Infinity }}
           >
-            <motion.span 
-              className="text-white"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+            <span className="text-white">
               Featured
-            </motion.span>
+            </span>
             <br />
             <motion.span 
               className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{ 
-                opacity: { delay: 0.4, duration: 0.8 },
-                scale: { delay: 0.4, duration: 0.8 },
                 backgroundPosition: { duration: 5, repeat: Infinity }
               }}
               style={{ backgroundSize: "200% 200%" }}
-              viewport={{ once: true }}
             >
               Work
             </motion.span>
@@ -313,35 +292,29 @@ const WorkSection = () => {
           
           <motion.p 
             className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            viewport={{ once: true }}
+            animate={{
+              opacity: [0.8, 1, 0.8]
+            }}
+            transition={{ 
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
           >
             A curated collection of digital experiences
           </motion.p>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50, rotateX: -10 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ 
-                delay: index * 0.1, 
-                duration: 0.8, 
-                type: "spring",
-                bounce: 0.3
+              whileHover={{ 
+                scale: 1.05,
+                y: -10,
+                rotateX: 5
               }}
-              viewport={{ once: true }}
-              style={{ transformStyle: "preserve-3d" }}
+              style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
             >
               <FlippableProjectCard
                 title={project.title}
@@ -360,9 +333,9 @@ const WorkSection = () => {
               />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

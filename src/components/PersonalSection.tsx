@@ -35,13 +35,7 @@ const PersonalSection = () => {
   };
 
   return (
-    <motion.section 
-      className="py-32 px-6 relative overflow-hidden bg-black"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-    >
+    <section className="py-32 px-6 relative overflow-hidden bg-black">
       {/* Enhanced Animated Starry Background */}
       <div className="absolute inset-0">
         {[...Array(60)].map((_, i) => (
@@ -92,13 +86,7 @@ const PersonalSection = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Enhanced Section Header */}
-        <motion.div 
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, type: "spring" }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-20">
           <motion.div 
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full"
             whileHover={{ scale: 1.05 }}
@@ -132,49 +120,34 @@ const PersonalSection = () => {
             }}
             transition={{ duration: 4, repeat: Infinity }}
           >
-            <motion.span 
-              className="text-white"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+            <span className="text-white">
               Explore, experiment
-            </motion.span>
+            </span>
             <br />
             <motion.span 
               className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{ 
-                opacity: { delay: 0.4, duration: 0.8 },
-                scale: { delay: 0.4, duration: 0.8 },
                 backgroundPosition: { duration: 5, repeat: Infinity }
               }}
               style={{ backgroundSize: "200% 200%" }}
-              viewport={{ once: true }}
             >
               && say hello
             </motion.span>
           </motion.h2>
-        </motion.div>
+        </div>
 
         {/* Enhanced Cards Grid with staggered animations */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {/* Education Card */}
           <motion.div
-            initial={{ opacity: 0, y: 50, rotateX: -15 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-            transition={{ delay: 0.1, duration: 0.8, type: "spring" }}
             whileHover={{ 
               y: -10, 
               rotateX: 5,
               boxShadow: "0 20px 40px rgba(59,130,246,0.3)"
             }}
-            viewport={{ once: true }}
             style={{ transformStyle: "preserve-3d" }}
           >
             <Card className="group p-8 bg-black/70 border border-blue-400/40 backdrop-blur-sm transition-all duration-500 scale-[1.02] shadow-2xl shadow-blue-500/20 relative overflow-hidden h-[480px] flex flex-col">
@@ -212,15 +185,11 @@ const PersonalSection = () => {
 
           {/* Fun Facts Card */}
           <motion.div
-            initial={{ opacity: 0, y: 50, rotateX: -15 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-            transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
             whileHover={{ 
               y: -10, 
               rotateX: 5,
               boxShadow: "0 20px 40px rgba(236,72,153,0.3)"
             }}
-            viewport={{ once: true }}
             style={{ transformStyle: "preserve-3d" }}
           >
             <Card className="group p-8 bg-black/70 border border-pink-400/40 backdrop-blur-sm transition-all duration-500 scale-[1.02] shadow-2xl shadow-pink-500/20 relative overflow-hidden h-[480px] flex flex-col">
@@ -258,15 +227,11 @@ const PersonalSection = () => {
 
           {/* Always Growing Card */}
           <motion.div
-            initial={{ opacity: 0, y: 50, rotateX: -15 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-            transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
             whileHover={{ 
               y: -10, 
               rotateX: 5,
               boxShadow: "0 20px 40px rgba(16,185,129,0.3)"
             }}
-            viewport={{ once: true }}
             style={{ transformStyle: "preserve-3d" }}
           >
             <Card className="group p-8 bg-black/70 border border-emerald-400/40 backdrop-blur-sm transition-all duration-500 scale-[1.02] shadow-2xl shadow-emerald-500/20 relative overflow-hidden h-[480px] flex flex-col">
@@ -304,20 +269,8 @@ const PersonalSection = () => {
         </div>
 
         {/* Enhanced About Me Section */}
-        <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <motion.div 
-            className="space-y-8"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="space-y-8">
             <div>
               <h3 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
                 Full-Stack Developer
@@ -376,23 +329,14 @@ const PersonalSection = () => {
               </Button>
             </div>
 
-            <motion.div 
-              className="mt-12 -mx-8"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+            <div className="mt-12 -mx-8">
               <SkillsCarousel />
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           <motion.div 
             className="flex justify-center lg:justify-end items-center mt-16"
-            initial={{ opacity: 0, x: 50, rotateY: -30 }}
-            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-            transition={{ delay: 0.4, duration: 1, type: "spring" }}
-            viewport={{ once: true }}
+            whileHover={{ scale: 1.05 }}
             style={{ transformStyle: "preserve-3d" }}
           >
             <motion.div 
@@ -469,9 +413,9 @@ const PersonalSection = () => {
               </motion.div>
             </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
