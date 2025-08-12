@@ -57,6 +57,35 @@ const AwardsSection = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      rotateX: -15
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      rotateX: 0,
+      transition: {
+        type: "spring" as const,
+        bounce: 0.15,
+        duration: 0.6
+      }
+    }
+  };
+
   return (
     <section className="py-32 bg-black relative overflow-hidden">
       {/* Optimized background effects */}
@@ -88,9 +117,20 @@ const AwardsSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/5 to-black" />
 
       <div className="container mx-auto px-8 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full">
+        {/* Enhanced Header with staggered animations */}
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <motion.div 
+            className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full"
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{ delay: 0.2, type: "spring", bounce: 0.5 }}
+          >
             <motion.div 
               className="w-2 h-2 bg-purple-400 rounded-full"
               animate={{ 
@@ -104,9 +144,14 @@ const AwardsSection = () => {
               }}
             />
             <span className="text-purple-300 text-sm font-light">Achievements</span>
-          </div>
+          </motion.div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight">
+          <motion.h2 
+            className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+          >
             Recognition{" "}
             <motion.span 
               className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent font-light"
@@ -122,19 +167,38 @@ const AwardsSection = () => {
             >
               & Awards
             </motion.span>
-          </h2>
+          </motion.h2>
           
-          <p className="text-gray-300 text-xl max-w-3xl mx-auto font-light leading-relaxed">
+          <motion.p 
+            className="text-gray-300 text-xl max-w-3xl mx-auto font-light leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
             Celebrating achievements that fuel the journey forward
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        {/* Awards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Awards Grid - Redesigned to match experience cards */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {awards.map((award, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={cardVariants}
               className="group"
+              whileHover={{ 
+                scale: 1.02,
+                y: -5,
+                rotateX: 2,
+                rotateY: 2
+              }}
+              style={{ perspective: "1000px" }}
             >
               <Card className="relative p-6 bg-black/70 border border-gray-800 backdrop-blur-sm transition-all duration-500 hover:border-purple-400/40 hover:shadow-2xl hover:shadow-purple-500/20 rounded-2xl overflow-hidden h-full flex flex-col">
                 {/* Subtle hover glow effect */}
@@ -252,9 +316,9 @@ const AwardsSection = () => {
                   <Star className="w-4 h-4 text-gray-400" />
                 </div>
               </Card>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -58,9 +58,9 @@ const SkillsSection = () => {
     <motion.section 
       id="skills" 
       className="py-32 px-6 relative overflow-hidden bg-black"
-      initial={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 0 }}
+      transition={{ duration: 1 }}
       viewport={{ once: true }}
     >
       {/* Floating Elements */}
@@ -116,9 +116,9 @@ const SkillsSection = () => {
         {/* Header */}
         <motion.div 
           className="text-center mb-20"
-          initial={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0 }}
+          transition={{ duration: 1, type: "spring" }}
           viewport={{ once: true }}
         >
           <AnimatedText 
@@ -129,9 +129,9 @@ const SkillsSection = () => {
           </AnimatedText>
           <motion.p 
             className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light"
-            initial={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
             viewport={{ once: true }}
           >
             Technologies and tools I work with
@@ -141,9 +141,9 @@ const SkillsSection = () => {
         {/* Skills Grid */}
         <motion.div 
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
-          initial={{ opacity: 1 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
         >
           {skills.map((skill, index) => (

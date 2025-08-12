@@ -171,9 +171,9 @@ const WorkSection = () => {
     <motion.section 
       id="work" 
       className="py-32 px-6 relative overflow-hidden bg-black"
-      initial={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 0 }}
+      transition={{ duration: 1 }}
       viewport={{ once: true }}
     >
       <div className="absolute inset-0">
@@ -238,9 +238,9 @@ const WorkSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div 
           className="text-center mb-24 relative"
-          initial={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0 }}
+          transition={{ duration: 1, type: "spring" }}
           viewport={{ once: true }}
         >
           <motion.div 
@@ -284,9 +284,9 @@ const WorkSection = () => {
           >
             <motion.span 
               className="text-white"
-              initial={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
               viewport={{ once: true }}
             >
               Featured
@@ -294,14 +294,14 @@ const WorkSection = () => {
             <br />
             <motion.span 
               className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
-              initial={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{ 
-                opacity: { duration: 0 },
-                scale: { duration: 0 },
+                opacity: { delay: 0.4, duration: 0.8 },
+                scale: { delay: 0.4, duration: 0.8 },
                 backgroundPosition: { duration: 5, repeat: Infinity }
               }}
               style={{ backgroundSize: "200% 200%" }}
@@ -313,9 +313,9 @@ const WorkSection = () => {
           
           <motion.p 
             className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light"
-            initial={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
             viewport={{ once: true }}
           >
             A curated collection of digital experiences
@@ -324,17 +324,22 @@ const WorkSection = () => {
 
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
-          initial={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0 }}
+          transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 1, y: 0, rotateX: 0 }}
+              initial={{ opacity: 0, y: 50, rotateX: -10 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0 }}
+              transition={{ 
+                delay: index * 0.1, 
+                duration: 0.8, 
+                type: "spring",
+                bounce: 0.3
+              }}
               viewport={{ once: true }}
               style={{ transformStyle: "preserve-3d" }}
             >
