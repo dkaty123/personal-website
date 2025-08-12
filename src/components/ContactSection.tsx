@@ -108,25 +108,9 @@ const ContactSection = () => {
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Enhanced header */}
-        <motion.div 
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, type: "spring", bounce: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <motion.h2 
-            className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-8"
-            animate={{
-              textShadow: [
-                "0 0 20px rgba(255,255,255,0.1)",
-                "0 0 40px rgba(168,85,247,0.3)",
-                "0 0 20px rgba(255,255,255,0.1)"
-              ]
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
-          >
+        {/* Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-8">
             <span className="text-white">Let's</span>
             <br />
             <motion.span 
@@ -139,15 +123,10 @@ const ContactSection = () => {
             >
               Connect
             </motion.span>
-          </motion.h2>
-          <motion.p 
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
             Ready to turn your ideas into reality? Let's discuss how we can create something amazing together.
-          </motion.p>
+          </p>
 
           {/* Animated decoration */}
           <motion.div 
@@ -158,38 +137,17 @@ const ContactSection = () => {
             }}
             transition={{ duration: 4, repeat: Infinity }}
           />
-        </motion.div>
+        </div>
 
         {/* Contact Methods */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {contactMethods.map((method, index) => {
             const Icon = method.icon;
             const colorClasses = getColorClasses(method.color);
             
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 50, rotateX: -10 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ 
-                  delay: index * 0.2, 
-                  duration: 0.8, 
-                  type: "spring",
-                  bounce: 0.3
-                }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -10,
-                  rotateX: 5
-                }}
-                style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
                 className="group"
               >
                 <Card className="bg-black/70 border border-gray-800 backdrop-blur-sm transition-all duration-500 hover:border-purple-400/40 hover:shadow-2xl hover:shadow-purple-500/20 relative overflow-hidden p-8 h-full">
@@ -263,10 +221,10 @@ const ContactSection = () => {
                     ))}
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
 
       </div>
     </section>
