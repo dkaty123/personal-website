@@ -1,461 +1,223 @@
 
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Calendar, Award, Target, TreePine } from "lucide-react";
 import { motion } from "framer-motion";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Heart, Code, Lightbulb, Users, Globe, Zap } from "lucide-react";
 
 const AboutSection = () => {
-  const timeline = [
+  const values = [
     {
-      year: "2025",
-      title: "Shopify SWE Intern",
-      description: "Fall 2025 Software Engineering Internship",
-      type: "work"
+      icon: Heart,
+      title: "Purpose-Driven",
+      description: "Building technology that creates meaningful impact and addresses real-world challenges.",
+      color: "from-red-400 to-pink-500"
     },
     {
-      year: "2024", 
-      title: "Health Canada SWE Intern",
-      description: "Software Engineering Internship",
-      type: "work"
+      icon: Code,
+      title: "Craft Excellence",
+      description: "Committed to writing clean, efficient code and creating exceptional user experiences.",
+      color: "from-blue-400 to-cyan-500"
     },
     {
-      year: "2024",
-      title: "IBM Z Ambassador",
-      description: "Ambassador for IBM Z Systems",
-      type: "role"
+      icon: Lightbulb,
+      title: "Innovation First",
+      description: "Always exploring new technologies and approaches to solve complex problems creatively.",
+      color: "from-yellow-400 to-orange-500"
     },
     {
-      year: "2023",
-      title: "RBC 21 Under 21",
-      description: "Recognition Award",
-      type: "award"
+      icon: Users,
+      title: "Accessibility Focused",
+      description: "Ensuring technology is inclusive and accessible to everyone, regardless of their abilities.",
+      color: "from-green-400 to-emerald-500"
     },
     {
-      year: "2023",
-      title: "Governor General's Award",
-      description: "Academic Excellence Award",
-      type: "award"
+      icon: Globe,
+      title: "Global Impact",
+      description: "Creating solutions that can scale globally and make a difference in communities worldwide.",
+      color: "from-purple-400 to-violet-500"
+    },
+    {
+      icon: Zap,
+      title: "Continuous Learning",
+      description: "Constantly growing, learning new technologies, and adapting to the evolving tech landscape.",
+      color: "from-indigo-400 to-blue-500"
     }
   ];
 
+  const techStack = [
+    { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"], color: "blue" },
+    { category: "Backend", items: ["Node.js", "Python", "PostgreSQL", "MongoDB"], color: "green" },
+    { category: "AI/ML", items: ["TensorFlow", "PyTorch", "Computer Vision", "NLP"], color: "purple" },
+    { category: "Cloud", items: ["AWS", "Vercel", "Supabase", "Docker"], color: "orange" },
+    { category: "Mobile", items: ["React Native", "Expo", "iOS", "Android"], color: "pink" },
+    { category: "Tools", items: ["Git", "Figma", "VS Code", "Linear"], color: "cyan" }
+  ];
+
+  const getColorClasses = (color: string) => {
+    switch (color) {
+      case 'blue': return 'bg-blue-500/10 text-blue-300 border-blue-400/30';
+      case 'green': return 'bg-green-500/10 text-green-300 border-green-400/30';
+      case 'purple': return 'bg-purple-500/10 text-purple-300 border-purple-400/30';
+      case 'orange': return 'bg-orange-500/10 text-orange-300 border-orange-400/30';
+      case 'pink': return 'bg-pink-500/10 text-pink-300 border-pink-400/30';
+      case 'cyan': return 'bg-cyan-500/10 text-cyan-300 border-cyan-400/30';
+      default: return 'bg-gray-500/10 text-gray-300 border-gray-400/30';
+    }
+  };
+
   return (
     <section id="about" className="py-32 px-6 relative overflow-hidden bg-black">
-      {/* Enhanced Starry Background */}
+      {/* Static background effects */}
       <div className="absolute inset-0">
-        {[...Array(50)].map((_, i) => (
-          <motion.div
+        {[...Array(60)].map((_, i) => (
+          <div
             key={i}
-            className="absolute bg-white rounded-full opacity-40"
+            className="absolute bg-white rounded-full opacity-20"
             style={{
               width: Math.random() * 2 + 1 + 'px',
               height: Math.random() * 2 + 1 + 'px',
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
             }}
-            animate={{
-              opacity: [0.2, 0.8, 0.2],
-              scale: [1, 1.3, 1],
-              rotate: [0, 360, 0],
-            }}
-            transition={{
-              duration: Math.random() * 4 + 3,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "easeInOut"
-            }}
           />
         ))}
       </div>
       
       <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
+        {[...Array(20)].map((_, i) => (
+          <div
             key={`large-${i}`}
-            className="absolute bg-white rounded-full opacity-30"
+            className="absolute bg-white rounded-full opacity-15"
             style={{
               width: '3px',
               height: '3px',
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
-              boxShadow: '0 0 6px rgba(255, 255, 255, 0.3)',
-            }}
-            animate={{
-              opacity: [0.1, 0.6, 0.1],
-              scale: [1, 1.5, 1],
-              boxShadow: [
-                '0 0 6px rgba(255, 255, 255, 0.3)',
-                '0 0 12px rgba(168, 85, 247, 0.5)',
-                '0 0 6px rgba(255, 255, 255, 0.3)',
-              ],
-            }}
-            transition={{
-              duration: Math.random() * 5 + 4,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "easeInOut"
+              boxShadow: '0 0 8px rgba(255, 255, 255, 0.4)',
             }}
           />
         ))}
       </div>
 
-      {/* Purple gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/20 to-black" />
 
-      {/* Floating elements */}
-      <div className="absolute inset-0">
-        {[...Array(10)].map((_, i) => (
-          <motion.div
-            key={`float-${i}`}
-            className="absolute w-2 h-2 bg-purple-400/20 rounded-full"
-            style={{
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-            }}
-            animate={{
-              y: [0, -50, 0],
-              x: [0, Math.random() * 30 - 15, 0],
-              opacity: [0, 0.6, 0],
-            }}
-            transition={{
-              duration: Math.random() * 6 + 5,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "easeInOut"
-            }}
-          />
-        ))}
-      </div>
-
       <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div 
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <motion.h2 
-            className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-          >
-            <motion.span 
-              className="text-white"
-              whileHover={{ scale: 1.05 }}
-            >
-              About
-            </motion.span>
+        {/* Header - removed animations */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full">
+            <div className="w-2 h-2 bg-purple-400 rounded-full" />
+            <span className="text-purple-300 text-sm font-light">About</span>
+          </div>
+
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-8">
+            <span className="text-white">Building the</span>
             <br />
-            <motion.span 
-              className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
-              animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              style={{ backgroundSize: '200% 200%' }}
-            >
-              Dev Katyal
-            </motion.span>
-          </motion.h2>
-          <motion.p 
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-          >
-            A passionate developer using AI to create environmental impact and build seamless digital experiences for founders worldwide.
-          </motion.p>
-        </motion.div>
+            <span className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+              Future
+            </span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
+            Passionate about creating technology that makes a meaningful difference in people's lives.
+          </p>
+        </div>
 
-        <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, staggerChildren: 0.3 }}
-          viewport={{ once: true }}
-        >
-          {/* Profile Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            whileHover={{ scale: 1.02, rotateY: 5 }}
-            style={{ perspective: "1000px" }}
-          >
-            <Card className="p-8 bg-black/60 border border-white/10 backdrop-blur-sm hover:border-purple-400/30 transition-all duration-500 group relative overflow-hidden">
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              />
+        {/* Story Section - removed animations */}
+        <div className="mb-20">
+          <Card className="p-8 bg-black/70 border border-gray-800 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-500 rounded-2xl">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+              <div className="lg:col-span-2">
+                <h3 className="text-2xl font-light text-white mb-6">My Journey</h3>
+                <div className="space-y-4 text-gray-300 font-light leading-relaxed">
+                  <p>
+                    I'm a Computer Science student at the University of Waterloo with a passion for AI and accessibility. 
+                    My journey began with a simple belief: technology should empower everyone, regardless of their abilities or circumstances.
+                  </p>
+                  <p>
+                    This philosophy led me to create <strong className="text-white">GlobalVision</strong>, an AI-powered accessibility platform 
+                    that has won multiple innovation awards and helps thousands of visually impaired users access visual content.
+                  </p>
+                  <p>
+                    Beyond accessibility, I'm deeply committed to climate action through technology. My work on projects like 
+                    <strong className="text-white"> EcoPlastic</strong> demonstrates how AI can tackle environmental challenges at scale.
+                  </p>
+                  <p>
+                    Currently, I'm excited to join <strong className="text-white">Shopify</strong> as a Software Engineering Intern, 
+                    where I'll contribute to building the future of commerce while continuing my mission to create technology that matters.
+                  </p>
+                </div>
+              </div>
               
-              <div className="relative z-10">
-                <div className="flex items-center gap-6 mb-6">
-                  <motion.div 
-                    className="w-20 h-20 rounded-full overflow-hidden border-2 border-white/20"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                  >
-                    <img 
-                      src="/lovable-uploads/a5b98a6c-55a7-4b64-a0fd-140827038e4e.png" 
-                      alt="Dev Katyal" 
-                      className="w-full h-full object-cover"
-                    />
-                  </motion.div>
-                  <div>
-                    <motion.h3 
-                      className="text-2xl font-light text-white mb-2"
-                      whileHover={{ x: 5 }}
-                    >
-                      Dev Katyal
-                    </motion.h3>
-                    <motion.p 
-                      className="text-purple-400 font-light"
-                      whileHover={{ x: 5 }}
-                    >
-                      Software Engineer & AI Innovator
-                    </motion.p>
-                  </div>
+              <div className="lg:col-span-1 text-center">
+                <div className="w-48 h-48 rounded-2xl overflow-hidden border-2 border-white/10 mx-auto mb-6 shadow-lg">
+                  <img 
+                    src="/lovable-uploads/1488e487-15ac-43d1-8dd4-eb4d69a298f3.png" 
+                    alt="Dev Katyal" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <motion.p 
-                  className="text-gray-300 leading-relaxed mb-6 font-light"
-                  initial={{ opacity: 0.8 }}
-                  whileHover={{ opacity: 1 }}
-                >
-                  Currently a Fall 2025 SWE Intern at Shopify, with previous experience at Health Canada and as an IBM Z Ambassador. 
-                  Passionate about leveraging AI technology to solve real-world problems, particularly in environmental sustainability.
-                </motion.p>
-                <motion.div 
-                  className="flex items-center gap-2 text-green-400"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  >
-                    <TreePine className="w-5 h-5" />
-                  </motion.div>
-                  <span className="text-sm font-light">Environmental Impact Focus</span>
-                </motion.div>
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* Mission Statement */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            whileHover={{ scale: 1.02, rotateY: -5 }}
-            style={{ perspective: "1000px" }}
-          >
-            <Card className="p-8 bg-black/60 border border-white/10 backdrop-blur-sm hover:border-purple-400/30 transition-all duration-500 group relative overflow-hidden">
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              />
-              
-              <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-6">
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                  >
-                    <Target className="w-6 h-6 text-purple-400" />
-                  </motion.div>
-                  <h3 className="text-xl font-light text-white">Mission Statement</h3>
+                <div className="space-y-2">
+                  <Badge className="bg-purple-500/20 text-purple-300 border-purple-400/30">
+                    Terry Fox Scholar 2025
+                  </Badge>
+                  <Badge className="bg-blue-500/20 text-blue-300 border-blue-400/30">
+                    2× Innovation Winner
+                  </Badge>
                 </div>
-                <motion.p 
-                  className="text-gray-300 leading-relaxed mb-6 font-light"
-                  initial={{ opacity: 0.8 }}
-                  whileHover={{ opacity: 1 }}
-                >
-                  "I believe technology should be a force for positive change. My mission is to harness the power of AI 
-                  to address environmental challenges while helping founders transform their innovative ideas into 
-                  impactful digital solutions."
-                </motion.p>
-                <div className="space-y-3">
-                  {[
-                    { text: "AI for Environmental Impact", color: "bg-purple-400" },
-                    { text: "Sustainable Technology Solutions", color: "bg-pink-400" },
-                    { text: "Founder-Focused Development", color: "bg-blue-400" }
-                  ].map((item, index) => (
-                    <motion.div 
-                      key={index}
-                      className="flex items-center gap-3"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.6 + index * 0.2 }}
-                      whileHover={{ scale: 1.05, x: 5 }}
-                    >
-                      <motion.div 
-                        className={`w-2 h-2 ${item.color} rounded-full`}
-                        animate={{ scale: [1, 1.3, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
-                      />
-                      <span className="text-sm text-gray-400 font-light">{item.text}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        </motion.div>
-
-        {/* Timeline */}
-        <motion.div 
-          className="mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex items-center gap-3 mb-8">
-            <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            >
-              <Calendar className="w-6 h-6 text-purple-400" />
-            </motion.div>
-            <h3 className="text-2xl font-light text-white">Key Milestones</h3>
-          </div>
-          
-          <div className="relative">
-            {/* Timeline Line */}
-            <motion.div 
-              className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-400 via-pink-400 to-purple-400 opacity-30"
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              transition={{ duration: 1.5, delay: 0.5 }}
-              style={{ originY: 0 }}
-            />
-            
-            <div className="space-y-6">
-              {timeline.map((item, index) => (
-                <motion.div 
-                  key={index} 
-                  className="relative flex items-start gap-6"
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  whileHover={{ scale: 1.02, x: 10 }}
-                >
-                  <motion.div 
-                    className={`w-8 h-8 rounded-full border-2 flex items-center justify-center z-10 ${
-                      item.type === 'award' ? 'bg-yellow-500/20 border-yellow-400' :
-                      item.type === 'work' ? 'bg-green-500/20 border-green-400' :
-                      'bg-blue-500/20 border-blue-400'
-                    }`}
-                    whileHover={{ scale: 1.2, rotate: 360 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {item.type === 'award' ? (
-                      <motion.div
-                        animate={{ rotate: [0, 360] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                      >
-                        <Award className="w-4 h-4 text-yellow-400" />
-                      </motion.div>
-                    ) : (
-                      <motion.div 
-                        className={`w-2 h-2 rounded-full ${
-                          item.type === 'work' ? 'bg-green-400' : 'bg-blue-400'
-                        }`}
-                        animate={{ scale: [1, 1.3, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
-                      />
-                    )}
-                  </motion.div>
-                  
-                  <Card className="flex-1 p-4 bg-black/40 border border-white/10 hover:border-purple-400/30 transition-all duration-300 group">
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"
-                    />
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-3 mb-2">
-                        <motion.span 
-                          className="text-purple-400 font-medium text-sm"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          {item.year}
-                        </motion.span>
-                        <motion.h4 
-                          className="font-light text-white"
-                          whileHover={{ x: 5 }}
-                        >
-                          {item.title}
-                        </motion.h4>
-                      </div>
-                      <motion.p 
-                        className="text-gray-400 text-sm font-light"
-                        initial={{ opacity: 0.8 }}
-                        whileHover={{ opacity: 1 }}
-                      >
-                        {item.description}
-                      </motion.p>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Awards Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <Card className="p-8 bg-black/60 border border-white/10 backdrop-blur-sm hover:border-purple-400/30 transition-all duration-500 text-center group relative overflow-hidden">
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            />
-            
-            <div className="relative z-10">
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                >
-                  <Award className="w-6 h-6 text-yellow-400" />
-                </motion.div>
-                <h3 className="text-2xl font-light text-white">Recognition & Awards</h3>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  { title: "RBC 21 Under 21", desc: "Recognition for outstanding achievements and potential", color: "yellow" },
-                  { title: "Governor General's Award", desc: "Academic excellence and community contribution", color: "purple" }
-                ].map((award, index) => (
-                  <motion.div 
-                    key={index}
-                    className={`p-4 ${award.color === 'yellow' ? 'bg-yellow-500/10 border-yellow-400/20' : 'bg-purple-500/10 border-purple-400/20'} rounded-lg border`}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6 + index * 0.2 }}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                  >
-                    <motion.h4 
-                      className={`font-medium ${award.color === 'yellow' ? 'text-yellow-400' : 'text-purple-400'} mb-2`}
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      {award.title}
-                    </motion.h4>
-                    <motion.p 
-                      className="text-sm text-gray-400 font-light"
-                      initial={{ opacity: 0.8 }}
-                      whileHover={{ opacity: 1 }}
-                    >
-                      {award.desc}
-                    </motion.p>
-                  </motion.div>
-                ))}
               </div>
             </div>
           </Card>
-        </motion.div>
+        </div>
+
+        {/* Values Grid - removed animations */}
+        <div className="mb-20">
+          <h3 className="text-3xl font-light text-white text-center mb-12">Core Values</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {values.map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <Card 
+                  key={index}
+                  className="group p-6 bg-black/70 border border-gray-800 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-500 hover:shadow-lg hover:shadow-purple-500/20 rounded-xl"
+                >
+                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${value.color} p-3 mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-full h-full text-white" />
+                  </div>
+                  <h4 className="text-lg font-light text-white mb-2 group-hover:text-purple-100 transition-colors">
+                    {value.title}
+                  </h4>
+                  <p className="text-gray-400 text-sm font-light leading-relaxed">
+                    {value.description}
+                  </p>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Tech Stack - removed animations */}
+        <div>
+          <h3 className="text-3xl font-light text-white text-center mb-12">Technology Stack</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {techStack.map((stack, index) => (
+              <Card 
+                key={index}
+                className="p-6 bg-black/70 border border-gray-800 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-500 rounded-xl"
+              >
+                <h4 className="text-lg font-light text-white mb-4">{stack.category}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {stack.items.map((item, itemIndex) => (
+                    <Badge 
+                      key={itemIndex}
+                      className={`${getColorClasses(stack.color)} text-xs`}
+                    >
+                      {item}
+                    </Badge>
+                  ))}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

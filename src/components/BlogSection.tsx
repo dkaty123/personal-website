@@ -33,7 +33,7 @@ const BlogSection = () => {
 
   return (
     <section id="blog" className="py-32 px-6 relative overflow-hidden bg-black">
-      {/* Starry Background - matching hero */}
+      {/* Static background */}
       <div className="absolute inset-0">
         {[...Array(50)].map((_, i) => (
           <div

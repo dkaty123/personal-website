@@ -57,41 +57,12 @@ const AwardsSection = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30,
-      rotateX: -15
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      rotateX: 0,
-      transition: {
-        type: "spring" as const,
-        bounce: 0.15,
-        duration: 0.6
-      }
-    }
-  };
-
   return (
     <section className="py-32 bg-black relative overflow-hidden">
-      {/* Optimized background effects */}
+      {/* Static background effects */}
       <div className="absolute inset-0">
         {[...Array(30)].map((_, i) => (
-          <motion.div
+          <div
             key={i}
             className="absolute bg-white rounded-full opacity-10"
             style={{
@@ -100,16 +71,6 @@ const AwardsSection = () => {
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
             }}
-            animate={{
-              opacity: [0.1, 0.3, 0.1],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "easeInOut"
-            }}
           />
         ))}
       </div>
@@ -117,122 +78,39 @@ const AwardsSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/5 to-black" />
 
       <div className="container mx-auto px-8 relative z-10">
-        {/* Enhanced Header with staggered animations */}
-        <motion.div 
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <motion.div 
-            className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full"
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring", bounce: 0.5 }}
-          >
-            <motion.div 
-              className="w-2 h-2 bg-purple-400 rounded-full"
-              animate={{ 
-                scale: [1, 1.5, 1],
-                opacity: [0.5, 1, 0.5]
-              }}
-              transition={{ 
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
+        {/* Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full">
+            <div className="w-2 h-2 bg-purple-400 rounded-full" />
             <span className="text-purple-300 text-sm font-light">Achievements</span>
-          </motion.div>
+          </div>
 
-          <motion.h2 
-            className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
-          >
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight">
             Recognition{" "}
-            <motion.span 
-              className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent font-light"
-              animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              style={{ backgroundSize: '200% 200%' }}
-            >
+            <span className="italic bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent font-light">
               & Awards
-            </motion.span>
-          </motion.h2>
+            </span>
+          </h2>
           
-          <motion.p 
-            className="text-gray-300 text-xl max-w-3xl mx-auto font-light leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
+          <p className="text-gray-300 text-xl max-w-3xl mx-auto font-light leading-relaxed">
             Celebrating achievements that fuel the journey forward
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        {/* Awards Grid - Redesigned to match experience cards */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        {/* Awards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {awards.map((award, index) => (
-            <motion.div
+            <div
               key={index}
-              variants={cardVariants}
               className="group"
-              whileHover={{ 
-                scale: 1.02,
-                y: -5,
-                rotateX: 2,
-                rotateY: 2
-              }}
-              style={{ perspective: "1000px" }}
             >
               <Card className="relative p-6 bg-black/70 border border-gray-800 backdrop-blur-sm transition-all duration-500 hover:border-purple-400/40 hover:shadow-2xl hover:shadow-purple-500/20 rounded-2xl overflow-hidden h-full flex flex-col">
                 {/* Subtle hover glow effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  initial={false}
-                />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {/* Animated border glow on hover */}
-                <motion.div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  animate={{
-                    boxShadow: [
-                      "0 0 20px rgba(168, 85, 247, 0.1)",
-                      "0 0 40px rgba(168, 85, 247, 0.2)",
-                      "0 0 20px rgba(168, 85, 247, 0.1)"
-                    ]
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-
-                {/* Logo - Made bigger */}
+                {/* Logo */}
                 <div className="flex justify-center mb-6 relative z-10">
-                  <motion.div 
-                    className="w-24 h-24 rounded-xl bg-white flex items-center justify-center overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300"
-                    whileHover={{ 
-                      rotate: 5,
-                      boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)"
-                    }}
-                  >
+                  <div className="w-24 h-24 rounded-xl bg-white flex items-center justify-center overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <img 
                       src={award.logo} 
                       alt={award.organization}
@@ -243,69 +121,44 @@ const AwardsSection = () => {
                         fallback.innerHTML = `<div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg flex items-center justify-center"><Trophy class="w-6 h-6 text-white" /></div>`;
                       }}
                     />
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Content */}
                 <div className="text-center mb-4 relative z-10">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
+                  <Badge 
+                    variant="outline" 
+                    className="border-gray-700 text-gray-300 bg-gray-800/50 text-xs mb-3"
                   >
-                    <Badge 
-                      variant="outline" 
-                      className="border-gray-700 text-gray-300 bg-gray-800/50 text-xs mb-3"
-                    >
-                      <Calendar className="w-3 h-3 mr-1" />
-                      {award.year}
-                    </Badge>
-                  </motion.div>
+                    <Calendar className="w-3 h-3 mr-1" />
+                    {award.year}
+                  </Badge>
                   
-                  <motion.h3 
-                    className="text-lg font-light text-white mb-2 group-hover:text-purple-100 transition-colors duration-300 leading-tight"
-                    whileHover={{ x: 5 }}
-                  >
+                  <h3 className="text-lg font-light text-white mb-2 group-hover:text-purple-100 transition-colors duration-300 leading-tight">
                     {award.title}
-                  </motion.h3>
+                  </h3>
                   
-                  <motion.p 
-                    className="text-sm text-gray-400 font-light mb-3"
-                    whileHover={{ x: 5 }}
-                  >
+                  <p className="text-sm text-gray-400 font-light mb-3">
                     {award.organization}
-                  </motion.p>
+                  </p>
                 </div>
 
-                {/* Description - Made white */}
+                {/* Description */}
                 <div className="mt-auto relative z-10">
-                  <motion.p 
-                    className="text-white text-xs font-light leading-relaxed text-center"
-                    initial={{ opacity: 0.9 }}
-                    whileHover={{ opacity: 1 }}
-                  >
+                  <p className="text-white text-xs font-light leading-relaxed text-center">
                     {award.description}
-                  </motion.p>
+                  </p>
                 </div>
 
                 {/* Floating particles on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                   {[...Array(6)].map((_, i) => (
-                    <motion.div
+                    <div
                       key={i}
                       className="absolute w-1 h-1 bg-purple-400 rounded-full"
                       style={{
                         left: Math.random() * 100 + '%',
                         top: Math.random() * 100 + '%',
-                      }}
-                      animate={{
-                        y: [0, -20, 0],
-                        opacity: [0, 1, 0],
-                        scale: [0, 1.5, 0],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: i * 0.2,
-                        ease: "easeInOut"
                       }}
                     />
                   ))}
@@ -316,9 +169,9 @@ const AwardsSection = () => {
                   <Star className="w-4 h-4 text-gray-400" />
                 </div>
               </Card>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

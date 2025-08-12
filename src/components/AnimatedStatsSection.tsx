@@ -58,38 +58,6 @@ const AnimatedStatsSection = () => {
     }
   }, [isVisible]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 50,
-      scale: 0.8,
-      rotateX: -30
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      rotateX: 0,
-      transition: {
-        type: "spring" as const,
-        damping: 20,
-        stiffness: 300,
-        duration: 0.6
-      }
-    }
-  };
-
   return (
     <section id="stats-section" className="py-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-950/30 to-black" />
@@ -97,110 +65,52 @@ const AnimatedStatsSection = () => {
       <AnimatedBackground variant="particles" intensity="medium" color="purple" />
       
       <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="text-center mb-16">
           <AnimatedText variant="glow" className="text-4xl md:text-5xl font-light text-white mb-4">
             Numbers That
           </AnimatedText>
-          <AnimatedText variant="gradient" className="text-4xl md:text-5xl font-light" delay={0.3}>
+          <AnimatedText variant="gradient" className="text-4xl md:text-5xl font-light">
             Tell Stories
           </AnimatedText>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-        >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <motion.div
+            <div
               key={index}
               className="text-center group perspective-1000"
-              variants={itemVariants}
-              whileHover={{ 
-                scale: 1.05,
-                rotateY: 5,
-                z: 50,
-                transition: { duration: 0.3 }
-              }}
             >
-              <motion.div 
-                className="relative preserve-3d"
-                whileHover={{ rotateX: 10 }}
-              >
+              <div className="relative preserve-3d">
                 {/* Glowing background */}
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-r ${stat.color} opacity-20 rounded-2xl blur-lg`}
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.2, 0.4, 0.2]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
+                <div className={`absolute inset-0 bg-gradient-to-r ${stat.color} opacity-20 rounded-2xl blur-lg`} />
                 
                 <div className="relative bg-black/50 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
                   {/* Animated icon */}
-                  <motion.div
-                    className="text-3xl mb-2"
-                    animate={{ 
-                      rotate: [0, 360],
-                      scale: [1, 1.1, 1]
-                    }}
-                    transition={{ 
-                      rotate: { duration: 10, repeat: Infinity, ease: "linear" },
-                      scale: { duration: 2, repeat: Infinity }
-                    }}
-                  >
+                  <div className="text-3xl mb-2">
                     {stat.icon}
-                  </motion.div>
+                  </div>
                   
                   {/* Animated counter */}
-                  <motion.div 
-                    className="text-4xl md:text-5xl font-light text-white mb-2"
-                    animate={isVisible ? {
-                      textShadow: [
-                        "0 0 10px rgba(255,255,255,0.3)",
-                        "0 0 20px rgba(168,85,247,0.5)",
-                        "0 0 10px rgba(255,255,255,0.3)"
-                      ]
-                    } : {}}
-                    transition={{ 
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
+                  <div className="text-4xl md:text-5xl font-light text-white mb-2">
                     {isVisible ? counters[index] : 0}{stat.suffix}
-                  </motion.div>
+                  </div>
                   
                   <div className="text-gray-400 text-sm font-light">
                     {stat.label}
                   </div>
 
                   {/* Progress bar */}
-                  <motion.div
-                    className="w-full h-1 bg-white/10 rounded-full mt-3 overflow-hidden"
-                    initial={{ scaleX: 0 }}
-                    animate={isVisible ? { scaleX: 1 } : {}}
-                    transition={{ duration: 1, delay: index * 0.2 }}
-                  >
-                    <motion.div
-                      className={`h-full bg-gradient-to-r ${stat.color} rounded-full`}
-                      initial={{ width: 0 }}
-                      animate={isVisible ? { width: "100%" } : {}}
-                      transition={{ duration: 1.5, delay: index * 0.2 + 0.5 }}
+                  <div className="w-full h-1 bg-white/10 rounded-full mt-3 overflow-hidden">
+                    <div
+                      className={`h-full bg-gradient-to-r ${stat.color} rounded-full transition-all duration-1500`}
+                      style={{ width: isVisible ? "100%" : "0%" }}
                     />
-                  </motion.div>
+                  </div>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
