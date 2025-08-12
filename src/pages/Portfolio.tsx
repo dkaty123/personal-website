@@ -32,26 +32,50 @@ const Portfolio = () => {
         <HeroSection />
       </motion.div>
       
-      {/* Removed all animations and delays from these sections */}
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        viewport={{ once: true }}
+      >
         <ExperienceSection />
-      </div>
+      </motion.div>
       
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        viewport={{ once: true }}
+      >
         <WorkSection />
-      </div>
+      </motion.div>
       
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        viewport={{ once: true }}
+      >
         <AboutSection />
-      </div>
+      </motion.div>
       
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        viewport={{ once: true }}
+      >
         <PersonalSection />
-      </div>
+      </motion.div>
       
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        viewport={{ once: true }}
+      >
         <ContactSection />
-      </div>
+      </motion.div>
     </motion.div>
   );
 };
