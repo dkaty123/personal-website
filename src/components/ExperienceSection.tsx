@@ -105,16 +105,16 @@ const ExperienceSection = () => {
         {/* Enhanced Section Header */}
         <motion.div 
           className="text-center mb-20"
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0 }}
           viewport={{ once: true }}
         >
           <motion.div 
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full"
-            initial={{ scale: 0, rotate: -180 }}
+            initial={{ scale: 1, rotate: 0 }}
             whileInView={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.2, type: "spring", bounce: 0.5 }}
+            transition={{ duration: 0 }}
           >
             <motion.div 
               className="w-2 h-2 bg-purple-400 rounded-full"
@@ -133,9 +133,9 @@ const ExperienceSection = () => {
           
           <motion.h2 
             className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 1, scale: 1 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
+            transition={{ duration: 0 }}
           >
             <span className="text-white">Where I've</span>{" "}
             <motion.span 
@@ -156,9 +156,9 @@ const ExperienceSection = () => {
           
           <motion.p 
             className="text-xl text-gray-400 font-light"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0 }}
           >
             Building meaningful experiences across diverse tech environments
           </motion.p>
@@ -167,9 +167,9 @@ const ExperienceSection = () => {
         {/* Enhanced Experience Cards */}
         <motion.div 
           className="space-y-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0 }}
           viewport={{ once: true }}
         >
           {experiences.map((exp, index) => (

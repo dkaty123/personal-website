@@ -129,16 +129,16 @@ const AboutSection = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div 
           className="text-center mb-20"
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0 }}
           viewport={{ once: true }}
         >
           <motion.h2 
             className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 1, scale: 1 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.2 }}
+            transition={{ duration: 0 }}
           >
             <motion.span 
               className="text-white"
@@ -164,9 +164,9 @@ const AboutSection = () => {
           </motion.h2>
           <motion.p 
             className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
+            transition={{ duration: 0 }}
           >
             A passionate developer using AI to create environmental impact and build seamless digital experiences for founders worldwide.
           </motion.p>
@@ -174,9 +174,9 @@ const AboutSection = () => {
 
         <motion.div 
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 1 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, staggerChildren: 0.3 }}
+          transition={{ duration: 0 }}
           viewport={{ once: true }}
         >
           {/* Profile Card */}
