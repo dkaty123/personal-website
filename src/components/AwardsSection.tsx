@@ -59,32 +59,7 @@ const AwardsSection = () => {
 
   return (
     <section className="py-32 bg-black relative overflow-hidden">
-      {/* Optimized background effects */}
-      <div className="absolute inset-0">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-white rounded-full opacity-10"
-            style={{
-              width: Math.random() * 2 + 1 + 'px',
-              height: Math.random() * 2 + 1 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-            }}
-            animate={{
-              opacity: [0.1, 0.3, 0.1],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "easeInOut"
-            }}
-          />
-        ))}
-      </div>
-
+      {/* Static background instead of animated particles */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/5 to-black" />
 
       <div className="container mx-auto px-8 relative z-10">
@@ -93,11 +68,10 @@ const AwardsSection = () => {
           <motion.div 
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full"
             animate={{ 
-              scale: [1, 1.05, 1],
-              rotate: [0, 2, 0]
+              scale: [1, 1.02, 1],
             }}
             transition={{ 
-              duration: 3,
+              duration: 4,
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -105,7 +79,7 @@ const AwardsSection = () => {
             <motion.div 
               className="w-2 h-2 bg-purple-400 rounded-full"
               animate={{ 
-                scale: [1, 1.5, 1],
+                scale: [1, 1.3, 1],
                 opacity: [0.5, 1, 0.5]
               }}
               transition={{ 
@@ -119,14 +93,6 @@ const AwardsSection = () => {
 
           <motion.h2 
             className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight"
-            animate={{
-              textShadow: [
-                "0 0 20px rgba(255,255,255,0.1)",
-                "0 0 40px rgba(168,85,247,0.3)",
-                "0 0 20px rgba(255,255,255,0.1)"
-              ]
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
           >
             Recognition{" "}
             <motion.span 
@@ -135,7 +101,7 @@ const AwardsSection = () => {
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
               }}
               transition={{
-                duration: 4,
+                duration: 6,
                 repeat: Infinity,
                 ease: "linear"
               }}
@@ -151,7 +117,7 @@ const AwardsSection = () => {
               opacity: [0.8, 1, 0.8]
             }}
             transition={{ 
-              duration: 3,
+              duration: 4,
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -179,23 +145,6 @@ const AwardsSection = () => {
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   initial={false}
-                />
-
-                {/* Animated border glow on hover */}
-                <motion.div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  animate={{
-                    boxShadow: [
-                      "0 0 20px rgba(168, 85, 247, 0.1)",
-                      "0 0 40px rgba(168, 85, 247, 0.2)",
-                      "0 0 20px rgba(168, 85, 247, 0.1)"
-                    ]
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
                 />
 
                 {/* Logo - Made bigger */}
@@ -257,31 +206,6 @@ const AwardsSection = () => {
                   >
                     {award.description}
                   </motion.p>
-                </div>
-
-                {/* Floating particles on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  {[...Array(6)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 bg-purple-400 rounded-full"
-                      style={{
-                        left: Math.random() * 100 + '%',
-                        top: Math.random() * 100 + '%',
-                      }}
-                      animate={{
-                        y: [0, -20, 0],
-                        opacity: [0, 1, 0],
-                        scale: [0, 1.5, 0],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: i * 0.2,
-                        ease: "easeInOut"
-                      }}
-                    />
-                  ))}
                 </div>
 
                 {/* Decorative star */}

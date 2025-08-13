@@ -45,35 +45,8 @@ const ExperienceSection = () => {
 
   return (
     <section className="py-32 px-6 relative overflow-hidden bg-black">
-      {/* Enhanced background effects with smoother animations */}
+      {/* Static background instead of animated particles */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-950/5 to-black" />
-      
-      {/* Optimized floating particles */}
-      <div className="absolute inset-0">
-        {[...Array(25)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-white rounded-full opacity-10"
-            style={{
-              width: Math.random() * 3 + 1 + 'px',
-              height: Math.random() * 3 + 1 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-            }}
-            animate={{
-              opacity: [0.1, 0.4, 0.1],
-              scale: [1, 1.8, 1],
-              y: [0, -40, 0],
-            }}
-            transition={{
-              duration: Math.random() * 4 + 3,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "easeInOut"
-            }}
-          />
-        ))}
-      </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Enhanced Section Header */}
@@ -81,11 +54,10 @@ const ExperienceSection = () => {
           <motion.div 
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full"
             animate={{ 
-              scale: [1, 1.05, 1],
-              rotate: [0, 2, 0]
+              scale: [1, 1.02, 1],
             }}
             transition={{ 
-              duration: 3,
+              duration: 4,
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -93,7 +65,7 @@ const ExperienceSection = () => {
             <motion.div 
               className="w-2 h-2 bg-purple-400 rounded-full"
               animate={{ 
-                scale: [1, 1.5, 1],
+                scale: [1, 1.3, 1],
                 opacity: [0.5, 1, 0.5]
               }}
               transition={{ 
@@ -107,14 +79,6 @@ const ExperienceSection = () => {
           
           <motion.h2 
             className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-6"
-            animate={{
-              textShadow: [
-                "0 0 20px rgba(255,255,255,0.1)",
-                "0 0 40px rgba(168,85,247,0.3)",
-                "0 0 20px rgba(255,255,255,0.1)"
-              ]
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
           >
             <span className="text-white">Where I've</span>{" "}
             <motion.span 
@@ -123,7 +87,7 @@ const ExperienceSection = () => {
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
               }}
               transition={{
-                duration: 4,
+                duration: 6,
                 repeat: Infinity,
                 ease: "linear"
               }}
@@ -139,7 +103,7 @@ const ExperienceSection = () => {
               opacity: [0.8, 1, 0.8]
             }}
             transition={{ 
-              duration: 3,
+              duration: 4,
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -168,31 +132,6 @@ const ExperienceSection = () => {
                   className="absolute inset-0 bg-gradient-to-br from-purple-500/3 to-pink-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   initial={false}
                 />
-
-                {/* Animated particles on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  {[...Array(8)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 bg-purple-400 rounded-full"
-                      style={{
-                        left: Math.random() * 100 + '%',
-                        top: Math.random() * 100 + '%',
-                      }}
-                      animate={{
-                        y: [0, -25, 0],
-                        opacity: [0, 1, 0],
-                        scale: [0, 1.5, 0],
-                      }}
-                      transition={{
-                        duration: 2.5,
-                        repeat: Infinity,
-                        delay: i * 0.2,
-                        ease: "easeInOut"
-                      }}
-                    />
-                  ))}
-                </div>
 
                 <CardContent className="p-8 relative z-10">
                   <div className="flex items-start gap-6">

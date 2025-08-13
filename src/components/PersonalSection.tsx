@@ -36,53 +36,8 @@ const PersonalSection = () => {
 
   return (
     <section className="py-32 px-6 relative overflow-hidden bg-black">
-      {/* Enhanced Animated Starry Background */}
-      <div className="absolute inset-0">
-        {[...Array(60)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-white rounded-full"
-            style={{
-              width: Math.random() * 2 + 1 + 'px',
-              height: Math.random() * 2 + 1 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-            }}
-            animate={{
-              opacity: [0.1, 0.6, 0.1],
-              scale: [1, 1.5, 1],
-              y: [-20, 20, -20],
-            }}
-            transition={{
-              duration: Math.random() * 6 + 4,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-            }}
-          />
-        ))}
-      </div>
-      
-      <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={`large-${i}`}
-            className="absolute bg-purple-400 rounded-full opacity-15 animate-pulse"
-            style={{
-              width: '3px',
-              height: '3px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-              boxShadow: '0 0 8px rgba(168, 85, 247, 0.3)',
-              animationDelay: Math.random() * 4 + 's',
-              animationDuration: (Math.random() * 3 + 3) + 's',
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Subtle animated gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-950/20 to-black animate-pulse" 
-           style={{ animationDuration: '8s' }} />
+      {/* Simple static background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-950/5 to-black" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Enhanced Section Header */}
@@ -90,19 +45,11 @@ const PersonalSection = () => {
           <motion.div 
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-500/10 border border-purple-400/20 rounded-full"
             whileHover={{ scale: 1.05 }}
-            animate={{ 
-              boxShadow: [
-                "0 0 20px rgba(168,85,247,0.2)",
-                "0 0 30px rgba(168,85,247,0.4)",
-                "0 0 20px rgba(168,85,247,0.2)"
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
           >
             <motion.div 
               className="w-2 h-2 bg-purple-400 rounded-full"
               animate={{
-                scale: [1, 1.5, 1],
+                scale: [1, 1.2, 1],
                 opacity: [0.5, 1, 0.5],
               }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -111,14 +58,6 @@ const PersonalSection = () => {
           </motion.div>
           <motion.h2 
             className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-8"
-            animate={{
-              textShadow: [
-                "0 0 20px rgba(255,255,255,0.1)",
-                "0 0 40px rgba(168,85,247,0.3)",
-                "0 0 20px rgba(255,255,255,0.1)"
-              ]
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
           >
             <span className="text-white">
               Explore, experiment
@@ -130,7 +69,7 @@ const PersonalSection = () => {
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{ 
-                backgroundPosition: { duration: 5, repeat: Infinity }
+                backgroundPosition: { duration: 6, repeat: Infinity }
               }}
               style={{ backgroundSize: "200% 200%" }}
             >
@@ -349,7 +288,7 @@ const PersonalSection = () => {
                   rotate: [12, 18, 12],
                   y: [-5, 5, -5],
                 }}
-                transition={{ duration: 4, repeat: Infinity }}
+                transition={{ duration: 6, repeat: Infinity }}
               />
               <motion.div 
                 className="absolute -bottom-6 -right-6 w-12 h-12 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl"
@@ -357,7 +296,7 @@ const PersonalSection = () => {
                   rotate: [-12, -18, -12],
                   y: [5, -5, 5],
                 }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+                transition={{ duration: 5, repeat: Infinity, delay: 1 }}
               />
               
               <motion.div 
@@ -369,13 +308,8 @@ const PersonalSection = () => {
                   className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-3xl"
                   animate={{
                     rotate: [6, 12, 6],
-                    background: [
-                      "linear-gradient(135deg, rgba(168,85,247,0.3), rgba(236,72,153,0.3))",
-                      "linear-gradient(135deg, rgba(236,72,153,0.3), rgba(168,85,247,0.3))",
-                      "linear-gradient(135deg, rgba(168,85,247,0.3), rgba(236,72,153,0.3))"
-                    ]
                   }}
-                  transition={{ duration: 6, repeat: Infinity }}
+                  transition={{ duration: 8, repeat: Infinity }}
                 />
                 <motion.div 
                   className="absolute inset-4 bg-black border border-white/20 rounded-2xl overflow-hidden"
@@ -383,7 +317,7 @@ const PersonalSection = () => {
                   transition={{ duration: 0.3 }}
                 >
                   {/* Fixed image with proper orientation */}
-                  <motion.img 
+                  <img 
                     src="/lovable-uploads/e0ae7d83-9255-40a8-ade0-394aae8b958c.png" 
                     alt="Dev Katyal" 
                     className="w-full h-full object-cover object-center"
@@ -391,14 +325,6 @@ const PersonalSection = () => {
                       transform: "rotate(90deg)",
                       transformOrigin: "center"
                     }}
-                    animate={{
-                      filter: [
-                        "brightness(1) contrast(1)",
-                        "brightness(1.05) contrast(1.05)",
-                        "brightness(1) contrast(1)"
-                      ]
-                    }}
-                    transition={{ duration: 4, repeat: Infinity }}
                   />
                 </motion.div>
                 
@@ -408,7 +334,7 @@ const PersonalSection = () => {
                     opacity: [0.6, 0.9, 0.6],
                     scale: [1, 1.2, 1],
                   }}
-                  transition={{ duration: 3, repeat: Infinity }}
+                  transition={{ duration: 4, repeat: Infinity }}
                 />
               </motion.div>
             </motion.div>

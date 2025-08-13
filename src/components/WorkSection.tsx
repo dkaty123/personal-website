@@ -172,63 +172,7 @@ const WorkSection = () => {
       id="work" 
       className="py-32 px-6 relative overflow-hidden bg-black"
     >
-      <div className="absolute inset-0">
-        {[...Array(120)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-white rounded-full"
-            style={{
-              width: Math.random() * 3 + 0.5 + 'px',
-              height: Math.random() * 3 + 0.5 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-            }}
-            animate={{
-              opacity: [0.1, 0.8, 0.1],
-              scale: [1, 1.5, 1],
-              y: [-30, 30, -30],
-              rotate: [0, 360, 0],
-            }}
-            transition={{
-              duration: Math.random() * 8 + 4,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="absolute inset-0">
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={`orb-${i}`}
-            className="absolute rounded-full blur-sm"
-            style={{
-              width: Math.random() * 100 + 50 + 'px',
-              height: Math.random() * 100 + 50 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-            }}
-            animate={{
-              y: [-50, 50, -50],
-              x: [-30, 30, -30],
-              opacity: [0.05, 0.2, 0.05],
-              scale: [1, 1.3, 1],
-              background: [
-                `linear-gradient(45deg, hsl(${Math.random() * 360}, 70%, 60%), hsl(${Math.random() * 360}, 70%, 60%))`,
-                `linear-gradient(45deg, hsl(${(Math.random() * 360 + 180) % 360}, 70%, 60%), hsl(${(Math.random() * 360 + 180) % 360}, 70%, 60%))`,
-                `linear-gradient(45deg, hsl(${Math.random() * 360}, 70%, 60%), hsl(${Math.random() * 360}, 70%, 60%))`,
-              ]
-            }}
-            transition={{
-              duration: Math.random() * 15 + 10,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-            }}
-          />
-        ))}
-      </div>
-
+      {/* Simple static background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/5 to-black" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -237,40 +181,32 @@ const WorkSection = () => {
             className="absolute -top-12 left-1/4 w-8 h-8 bg-purple-400/20 rounded-full"
             animate={{
               y: [-10, 10, -10],
-              scale: [1, 1.2, 1],
-              opacity: [0.2, 0.6, 0.2],
+              scale: [1, 1.1, 1],
+              opacity: [0.2, 0.4, 0.2],
             }}
-            transition={{ duration: 4, repeat: Infinity }}
+            transition={{ duration: 6, repeat: Infinity }}
           />
           <motion.div 
             className="absolute top-8 right-1/3 w-6 h-6 bg-pink-400/20 rounded-full"
             animate={{
               y: [-15, 15, -15],
-              scale: [1, 1.3, 1],
-              opacity: [0.3, 0.7, 0.3],
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
             }}
-            transition={{ duration: 3, repeat: Infinity, delay: 2 }}
+            transition={{ duration: 5, repeat: Infinity, delay: 2 }}
           />
           <motion.div 
             className="absolute -top-4 right-1/4 w-4 h-4 bg-blue-400/20 rounded-full"
             animate={{
               y: [-8, 8, -8],
-              scale: [1, 1.4, 1],
-              opacity: [0.4, 0.8, 0.4],
+              scale: [1, 1.3, 1],
+              opacity: [0.4, 0.6, 0.4],
             }}
-            transition={{ duration: 5, repeat: Infinity, delay: 4 }}
+            transition={{ duration: 7, repeat: Infinity, delay: 4 }}
           />
           
           <motion.h2 
             className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-6"
-            animate={{
-              textShadow: [
-                "0 0 20px rgba(255,255,255,0.1)",
-                "0 0 40px rgba(168,85,247,0.3)",
-                "0 0 20px rgba(255,255,255,0.1)"
-              ]
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
           >
             <span className="text-white">
               Featured
@@ -282,7 +218,7 @@ const WorkSection = () => {
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{ 
-                backgroundPosition: { duration: 5, repeat: Infinity }
+                backgroundPosition: { duration: 6, repeat: Infinity }
               }}
               style={{ backgroundSize: "200% 200%" }}
             >
@@ -296,7 +232,7 @@ const WorkSection = () => {
               opacity: [0.8, 1, 0.8]
             }}
             transition={{ 
-              duration: 3,
+              duration: 4,
               repeat: Infinity,
               ease: "easeInOut"
             }}

@@ -7,8 +7,6 @@ import AboutSection from "@/components/AboutSection";
 import PersonalSection from "@/components/PersonalSection";
 import ContactSection from "@/components/ContactSection";
 import Navigation from "@/components/Navigation";
-import AnimatedBackground from "@/components/AnimatedBackground";
-import FloatingElements from "@/components/FloatingElements";
 
 const Portfolio = () => {
   return (
@@ -18,9 +16,8 @@ const Portfolio = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* Global background animations */}
-      <AnimatedBackground variant="stars" intensity="low" color="purple" />
-      <FloatingElements count={30} variant="mixed" color="mixed" size="small" speed="slow" />
+      {/* Simple static background for performance */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/5 to-black" />
       
       <Navigation />
       
